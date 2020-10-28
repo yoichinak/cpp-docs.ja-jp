@@ -16,7 +16,7 @@ ms.locfileid: "92274692"
 ---
 # <a name="_noreturn-keyword-and-noreturn-macro-c11"></a>`_Noreturn` キーワードと `noreturn` マクロ (C11)
 
-`_Noreturn` キーワードは C11 で導入されました。 これにより、コンパイラに、適用される関数が呼び出し元に戻らないことが伝えられます。 このコンパイラは、`_Noreturn` 関数の呼び出しに続くコードは制御が渡らないことを認識します。 戻らない関数にはたとえば、[abort](../c-runtime-library/reference/abort.md) があります。 制御フローが呼び出し元に戻らない可能性がある場合、関数には `_Noreturn` 属性を与えないでください。
+`_Noreturn` キーワードは C11 で導入されました。 これにより、コンパイラに、適用される関数が呼び出し元に戻らないことが伝えられます。 このコンパイラは、`_Noreturn` 関数の呼び出しに続くコードは制御が渡らないことを認識します。 戻らない関数にはたとえば、[abort](../c-runtime-library/reference/abort.md) があります。 制御フローが呼び出し元に戻る可能性がある場合、関数には `_Noreturn` 属性を与えないでください。
 
 このキーワードは一般的に、<stdnoreturn.h> で提供され、`_Noreturn` キーワードにマッピングされる便利なマクロ `noreturn` を経由して利用されます。
 
