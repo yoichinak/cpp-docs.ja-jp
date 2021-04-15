@@ -61,6 +61,10 @@
       href: ../build/clang-support-cmake.md
     - name: Linux CMake プロジェクトを構成する
       href: ../build/../linux/cmake-linux-project.md
+    - name: CMake プリセットを使用した構成とビルド
+      href: ../build/cmake-presets-vs.md
+    - name: CMakePresets.json リファレンス
+      href: ../build/cmake-presets-json-reference.md
     - name: CMake のビルド設定をカスタマイズする
       href: ../build/customize-cmake-settings.md
     - name: CMake デバッグ セッションを構成する
@@ -84,6 +88,13 @@
       href: ../build/vcpkg-command-line-reference.md
 - name: C++ ビルドの洞察
   href: ../build-insights/get-started-with-cpp-build-insights.md
+- name: ヘッダー ユニットのビルドとインポート
+  expanded: false
+  items:
+    - name: 'チュートリアル: Visual C++ プロジェクトでのヘッダー ユニっとのビルドとインポート'
+      href: ../build/walkthrough-header-units.md
+    - name: 'チュートリアル: STL ライブラリをヘッダ ーユニットとしてインポートする'
+      href: ../build/walkthrough-import-stl-header-units.md
 - name: プリコンパイル済みヘッダー ファイル
   href: ../build/creating-precompiled-header-files.md
 - name: C++ のリリース ビルド
@@ -602,6 +613,8 @@
                   href: ../build/reference/gz-enable-stack-frame-run-time-error-checking.md
                 - name: /H (外部名の長さの制限)
                   href: ../build/reference/h-restrict-length-of-external-names.md
+                - name: /headerName (指定されたヘッダーからのヘッダー ユニットのビルド)
+                  href: ../build/reference/headername.md
                 - name: /headerUnit (ヘッダー ユニット IFC の使用)
                   href: ../build/reference/headerunit.md
                 - name: /HELP (コンパイラのコマンド ライン ヘルプ)
@@ -624,9 +637,9 @@
                   href: ../build/reference/ln-create-msil-module.md
                 - name: /MD、/MT、/LD (ランタイム ライブラリの使用)
                   href: ../build/reference/md-mt-ld-use-run-time-library.md
-                - name: '/module:exportHeader (ヘッダー ユニットの作成)'
+                - name: /exportHeader (ヘッダー ユニットの作成)
                   href: ../build/reference/module-exportheader.md
-                - name: '/module:reference (名前付きモジュール IFC の使用)'
+                - name: /reference (名前付きモジュール IFC の使用)
                   href: ../build/reference/module-reference.md
                 - name: /MP (複数のプロセスを使用したビルド)
                   href: ../build/reference/mp-build-with-multiple-processes.md
@@ -694,8 +707,10 @@
                   href: ../build/reference/showincludes-list-include-files.md
                 - name: /source-charset (ソース文字セットの設定)
                   href: ../build/reference/source-charset-set-source-character-set.md
-                - name: /sourceDependencies (レポート ソースレベルの依存関係)
+                - name: /sourceDependencies (すべてのソース レベルの依存関係一覧)
                   href: ../build/reference/sourcedependencies.md
+                - name: '/sourceDependencies: ディレクティブ (モジュールとヘッダー ユニットの依存関係一覧)'
+                  href: ../build/reference/sourcedependencies-directives.md
                 - name: /std (言語の標準バージョンの指定)
                   href: ../build/reference/std-specify-language-standard-version.md
                 - name: /Tc、/Tp、/TC、/TP (ソース ファイル タイプの指定)
