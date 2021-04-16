@@ -30,12 +30,12 @@ helpviewer_keywords:
 - CComBSTR class
 - CComBSTR
 ms.assetid: 8fea1879-a05e-47a5-a803-8dec60eaa534
-ms.openlocfilehash: 1ddb830846747f0e3efe36f02be07ce1a45b353e
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 548b3635d4d442c4adaced2aa555e612e58bb845
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97152309"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576834"
 ---
 # <a name="ccombstr-class"></a>CComBSTR クラス
 
@@ -166,7 +166,7 @@ HRESULT AppendBSTR(BSTR p) throw();
 
 ### <a name="parameters"></a>パラメーター
 
-*p*<br/>
+*irtran-p*<br/>
 から追加する BSTR。
 
 ### <a name="return-value"></a>戻り値
@@ -194,7 +194,7 @@ HRESULT AppendBytes(const char* lpsz, int nLen) throw();
 *lpsz*<br/>
 から追加するバイト配列へのポインター。
 
-*p*<br/>
+*irtran-p*<br/>
 から追加するバイト数。
 
 ### <a name="return-value"></a>戻り値

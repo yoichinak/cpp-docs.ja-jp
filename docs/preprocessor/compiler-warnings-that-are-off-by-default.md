@@ -6,12 +6,12 @@ helpviewer_keywords:
 - warnings, compiler
 - cl.exe compiler, setting options
 ms.assetid: 69809cfb-a38a-4035-b154-283a61938df8
-ms.openlocfilehash: 5bc482d12026bb8358d773be6a0c8b32cc2317fc
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 2178d62318cfc70fd7ec9805999bafb9a61c18cf
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97269381"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576912"
 ---
 # <a name="compiler-warnings-that-are-off-by-default"></a>既定で無効になっているコンパイラ警告
 
@@ -41,7 +41,7 @@ ms.locfileid: "97269381"
 
 Visual Studio 2015 以降のバージョンでは、次の警告が既定で無効になっています。
 
-|警告|Message|
+|警告|メッセージ|
 |-|-|
 |[C4061](../error-messages/compiler-warnings/compiler-warning-level-4-c4061.md) (レベル 4)|列挙型 '*enumeration*' のスイッチ内の列挙子 '*identifier*' は、case ラベルによって明示的に処理されていません|
 |[C4062](../error-messages/compiler-warnings/compiler-warning-level-4-c4062.md) (レベル 4)|列挙型 '*enumeration*' のスイッチ内の列挙子 '*identifier*' は処理されません|
@@ -148,23 +148,34 @@ Visual Studio 2015 以降のバージョンでは、次の警告が既定で無�
 |C5036 (レベル 1)|/hybrid: x86arm64 ' type1 *' から '**type1*' <sup>15.3</sup>を使用してコンパイルするときの varargs 関数ポインター変換|
 |[C5038](../error-messages/compiler-warnings/c5038.md) (レベル 4)|データメンバー '*member1*' はデータメンバー '*member2*' <sup>15.3</sup>の後に初期化されます|
 |C5039 (レベル 4)|'*function*':-ehc で extern c 関数に渡される可能性のあるスロー関数へのポインターまたは参照です。 この関数が例外をスローした場合、未定義の動作が発生する可能性があります。 <sup>15.5</sup>|
+| C5041 "(レベル 4) | '*メンバー名*': constexpr 静的データメンバーのアウトオブライン定義は必要ありません。 c++ 17 では非推奨とされます。 <sup>15.2</sup>|
 |C5042 (レベル 3)|'*function*': 標準 C++ では、ブロックスコープの関数宣言を ' inline ' として指定することはできません。' inline ' 指定子 <sup>15.5</sup>の削除|
 |[C5045](../error-messages/compiler-warnings/c5045.md)|/Qspectre スイッチが指定されている場合、コンパイラはメモリ負荷の Spectre 軽減策を挿入します。 <sup>15.7</sup>|
+| C5204 (レベル 3) | 仮想関数を持つクラスには、非仮想の自明なデストラクターがあります。 <sup>16.5</sup> |
+| C5214 (レベル 4) | volatile 修飾型のオペランドに '*keyword*' を適用することは、c++ 20 <sup>16.7</sup>では非推奨とされます |
+| C5215 (レベル 4) | '*関数* パラメーター ' volatile で修飾された型の関数パラメーターは、c++ 20 <sup>16.7</sup>では非推奨とされます |
+| C5216 (レベル 4) | '*戻り* 値の型 ' volatile で修飾された戻り値の型は c++ 20 <sup>16.7</sup>で非推奨とされます |
+| C5217 (レベル 4) | volatile を含む構造化バインド宣言は、C++ 20 <sup>16.7</sup>では非推奨とされます。 |
+| C5219 (レベル 2) | '*type-1*' から '*type-2*' への暗黙的な変換です。データが失われる可能性があります。 <sup>16.7</sup> |
+| C5220 (レベル 4) | '*member*': volatile で修飾された型を持つ非静的データメンバーは、<br/> コンパイラで生成されたコピー/移動コンストラクターとコピー/移動代入演算子が自明ではない <sup>16.7</sup> |
 
 <sup>14.1</sup> Visual Studio 2015 Update 1 以降では、この警告を利用できます。
 <sup>14.3</sup> Visual Studio 2015 Update 3 以降では、この警告を利用できます。
+<sup>15.2</sup> Visual Studio 2017 バージョン15.2 以降では、この警告は使用できます。
 <sup>15.3</sup> Visual Studio 2017 バージョン15.3 以降では、この警告は使用できます。
 <sup>15.5</sup> Visual Studio 2017 バージョン15.5 以降では、この警告は使用できます。
 <sup>15.7</sup> Visual Studio 2017 バージョン15.7 以降では、この警告は使用できます。
 <sup>15.8</sup> Visual Studio 2017 バージョン15.8 以降では、この警告は使用できます。
 <sup>16.0</sup> この警告は、Visual STUDIO 2019 RTM 以降で使用できます。
+<sup>16.5</sup> Visual Studio 2019 バージョン16.5 以降では、この警告は使用できます。
+<sup>16.7</sup> Visual Studio 2019 バージョン16.7 以降では、この警告は使用できます。
 <sup>Perm</sup> この警告は、 [/permissive-](../build/reference/permissive-standards-conformance.md) コンパイラオプションが設定されていない場合にオフになります。
 
 ## <a name="warnings-off-by-default-in-earlier-versions"></a>以前のバージョンでは、既定で警告がオフになっています
 
 これらの警告は、Visual Studio 2015 より前のバージョンのコンパイラでは既定でオフになっていました。
 
-|警告|Message|
+|警告|メッセージ|
 |-|-|
 |[C4302](../error-messages/compiler-warnings/compiler-warning-level-2-c4302.md) (レベル 2)|'*conversion*': ' type1 *' から '**type1*' への切り捨て|
 |[C4311](../error-messages/compiler-warnings/compiler-warning-level-1-c4311.md) (レベル 1)|'*variable*': ポインターが '*type*' から '*type*' に切り捨てられる|
@@ -173,7 +184,7 @@ Visual Studio 2015 以降のバージョンでは、次の警告が既定で無�
 
 この警告は、Visual Studio 2012 より前のバージョンのコンパイラでは既定で無効になっていました。
 
-|警告|Message|
+|警告|メッセージ|
 |-|-|
 |[C4431](../error-messages/compiler-warnings/compiler-warning-level-4-c4431.md) (レベル 4)|型指定子がありません - int と仮定しました。 メモ: C は、現在 int を既定値としてサポートしていません|
 

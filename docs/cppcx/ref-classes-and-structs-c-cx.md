@@ -3,12 +3,12 @@ description: Ref クラスと構造体 (C++/CX) の詳細について説明し�
 title: Ref クラスと構造体 (C++/CX)
 ms.date: 01/22/2017
 ms.assetid: 3d736b82-0bf0-48cf-bac1-cc9d110b70d1
-ms.openlocfilehash: e87709febd03c185ec50845ff6fbb1a5ee27aba7
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 2a2a1771ecf310448741f8cc97226dcea60a3214
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97273229"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577426"
 ---
 # <a name="ref-classes-and-structs-ccx"></a>Ref クラスと構造体 (C++/CX)
 

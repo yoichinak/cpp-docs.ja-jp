@@ -10,12 +10,12 @@ helpviewer_keywords:
 - modules [C++], import
 - modules [C++], export
 description: Import および export 宣言を使用して、指定したモジュールで定義されている型と関数にアクセスし、発行します。
-ms.openlocfilehash: 5be1618d7e64f6887cf78bd863d428d6710eaf7e
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: 360f940f2633641e13c93ecb9083d7e785794381
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87187193"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577193"
 ---
 # <a name="module-import-export"></a>モジュール、インポート、エクスポート
 
@@ -23,7 +23,7 @@ ms.locfileid: "87187193"
 
 ## <a name="module"></a>name
 
-モジュールの実装ファイルの先頭に**モジュール**宣言を配置し、ファイルの内容が名前付きモジュールに属していることを指定します。
+モジュールの実装ファイルの先頭に **モジュール** 宣言を配置し、ファイルの内容が名前付きモジュールに属していることを指定します。
 
 ```cpp
 module ModuleA;
@@ -31,7 +31,7 @@ module ModuleA;
 
 ## <a name="export"></a>エクスポート
 
-モジュールのプライマリインターフェイスファイルに**エクスポートモジュール**宣言を使用します。このファイルには拡張子を付ける必要があり**ます。 ixx**:
+モジュールのプライマリインターフェイスファイルに **エクスポートモジュール** 宣言を使用します。このファイルには拡張子を付ける必要があり **ます。 ixx**:
 
 ```cpp
 export module ModuleA;
@@ -70,7 +70,7 @@ int main() {
 
 ## <a name="import"></a>import
 
-**インポート**宣言を使用して、モジュールの名前がプログラムに表示されるようにします。 インポート宣言は、モジュール宣言の後、任意の #include ディレクティブの後、ファイル内の宣言の前に記述する必要があります。
+**インポート** 宣言を使用して、モジュールの名前がプログラムに表示されるようにします。 インポート宣言は、モジュール宣言の後、任意の #include ディレクティブの後、ファイル内の宣言の前に記述する必要があります。
 
 ```cpp
 module ModuleA;
@@ -88,7 +88,7 @@ class Baz
 
 ## <a name="remarks"></a>解説
 
-**インポート**と**モジュール**は、論理行の先頭に出現する場合にのみキーワードとして扱われます。
+**インポート** と **モジュール** は、論理行の先頭に出現する場合にのみキーワードとして扱われます。
 
 ```cpp
 
@@ -112,12 +112,12 @@ int i; module ;
 
 **Microsoft 固有の仕様**
 
-Microsoft C++ では、トークンの**インポート**と**モジュール**は常に識別子であり、マクロの引数として使用される場合はキーワードではありません。
+Microsoft C++ では、トークンの **インポート** と **モジュール** は常に識別子であり、マクロの引数として使用される場合はキーワードではありません。
 
 ### <a name="example"></a>例
 
 ```cpp
-#define foo(…) __VA_ARGS__
+#define foo(...) __VA_ARGS__
 foo(
 import // Always an identifier, never a keyword
 )

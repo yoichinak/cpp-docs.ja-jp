@@ -35,12 +35,12 @@ helpviewer_keywords:
 - fmodl function
 - fmod function
 - floating-point numbers, calculating remainders
-ms.openlocfilehash: 8d2c3bcb0f871eb707f264478c4ce492bbb9c80c
-ms.sourcegitcommit: 92dc6d99ba5dcf3b64dee164df2d29beb1e608da
+ms.openlocfilehash: 02089e44f1eca66ef5452b73144bfe670e20cd94
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98563939"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577366"
 ---
 # <a name="fmod-fmodf-fmodl"></a>`fmod`, `fmodf`, `fmodl`
 
@@ -82,7 +82,7 @@ long double fmodl(
 
 **`fmod`** の浮動小数点の剰余を返し *`x`*  /  *`y`* ます。 の値が0.0 の場合、は簡易 *`y`* **`fmod`** な NaN を返します。 ファミリによる簡易な NaN の表現については **`printf`** 、「 [printf](printf-printf-l-wprintf-wprintf-l.md)」を参照してください。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 関数は、 **`fmod`**  *`x`*  /  *`y`* *`x`*  =  *i* \* *`y`*  +  *`f`* ( *`i`* は整数)、は *`f`* と同じ符号を持ち、 *`x`* の絶対値は *`f`* の絶対値よりも小さく *`y`* なるように、の浮動小数点の剰余 f を計算します。
 
@@ -94,7 +94,7 @@ C++ ではオーバーロードが可能であるため、との値を受け取�
 
 ## <a name="requirements"></a>要件
 
-|関数|必須ヘッダー|
+|機能|必須ヘッダー|
 |--------------|---------------------|
 |**`fmod`**, **`fmodf`**, **`fmodl`**|`<math.h>`|
 |**`fmod`** マクロ | `<tgmath.h>` |
@@ -128,5 +128,5 @@ The remainder of -10.00 / 3.00 is -1.000000
 [浮動小数点のサポート](../../c-runtime-library/floating-point-support.md)\
 [`ceil, ceilf, ceill`](ceil-ceilf-ceill.md)\
 [`fabs, fabsf, fabsl`](fabs-fabsf-fabsl.md)\
-[f`loor, floorf, floorl`](floor-floorf-floorl.md)\
+[`floor, floorf, floorl`](floor-floorf-floorl.md)\
 [`_CIfmod`](../../c-runtime-library/cifmod.md)

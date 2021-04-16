@@ -1,5 +1,5 @@
 ---
-title: /exportHeader (ヘッダーユニットの作成)
+title: /exportHeader (ヘッダー ユニットの作成)
 description: /ExportHeader コンパイラオプションを使用して、指定したヘッダー名またはインクルードファイルのモジュールヘッダー単位を作成します。
 ms.date: 04/13/2020
 author: tylermsft
@@ -9,12 +9,12 @@ f1_keywords:
 helpviewer_keywords:
 - /exportHeader
 - Create header units
-ms.openlocfilehash: c116b3786b17f0a4574acff01b661a212767aa68
-ms.sourcegitcommit: bac5dde649d5b0447de1d26a73365e36d74595f3
+ms.openlocfilehash: 41b7d35b5468aade9515aab151b9090dcc1fb665
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107381338"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577166"
 ---
 # <a name="exportheader-create-header-units"></a>`/exportHeader` (ヘッダー ユニットの作成)
 
@@ -46,18 +46,18 @@ ms.locfileid: "107381338"
 
 **`/exportHeader`** でも、一度に複数の入力を処理でき **`/MP`** ます。 を使用し **`/ifcOutput  <directory>`** *`.ifc`* て、コンパイルごとに個別のファイルを作成することをお勧めします。
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 などのヘッダー単位を作成するには、 `<vector>` 次のようになります。
 
 ```cmd
-cl … /std:c++latest /exportHeader /headerName:angle vector
+cl . . . /std:c++latest /exportHeader /headerName:angle vector
 ```
 
 などのローカルプロジェクトヘッダーをビルドすることは、 `"utils/util.h"` 次のようになります。
 
 ```cmd
-cl … /std:c++latest /exportHeader /headerName:quote util/util.h
+cl . . . /std:c++latest /exportHeader /headerName:quote util/util.h
 ```
 
 ### <a name="to-set-this-compiler-option-in-the-visual-studio-development-environment"></a>Visual Studio 開発環境でこのコンパイラ オプションを設定するには

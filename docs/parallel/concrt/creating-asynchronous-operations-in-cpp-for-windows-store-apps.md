@@ -6,12 +6,12 @@ helpviewer_keywords:
 - Windows 8.x apps, creating C++ async operations
 - Creating C++ async operations
 ms.assetid: a57cecf4-394a-4391-a957-1d52ed2e5494
-ms.openlocfilehash: 2c7ec1a6fc469bf56faa746f11b52547cbf9ac8f
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 36205eb6749dd8aebb89caa6cc80ba256657e86a
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97234501"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576964"
 ---
 # <a name="creating-asynchronous-operations-in-c-for-uwp-apps"></a>C++ での UWP アプリ用の非同期操作の作成
 

@@ -85,12 +85,12 @@ helpviewer_keywords:
 - CMenu [MFC], TrackPopupMenuEx
 - CMenu [MFC], m_hMenu
 ms.assetid: 40cacfdc-d45c-4ec7-bf28-991c72812499
-ms.openlocfilehash: e1f0caea839e0660db10d055adf2af5fc7deb353
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 4bd5fac24313321fa7bc8cbe9447ca2e69b5685e
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97341582"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577477"
 ---
 # <a name="cmenu-class"></a>CMenu クラス
 
@@ -1471,7 +1471,7 @@ BOOL TrackPopupMenuEx(
 ポップアップメニューを所有し、作成されたメニューからメッセージを受信するウィンドウへのポインター。 このウィンドウは、現在のアプリケーションの任意のウィンドウにすることができますが、NULL にすることはできません。 *Futex フラグ* パラメーターに TPM_NONOTIFY を指定した場合、この関数は、メッセージを *pWnd* に送信しません。 この関数は、WM_COMMAND メッセージを受信するために、 *pWnd* が指すウィンドウに対してを返す必要があります。
 
 *lptpm*<br/>
-メニューを重ねることができない画面の領域を指定する [TPMPARAMS](/windows/win32/api/winuser/ns-winuser-tpmparams) 構造体へのポインター。 このパラメーターは、NULL でもかまいません。
+メニューを重ねることができない画面の領域を指定する [TPMPARAMS](/windows/win32/api/winuser/ns-winuser-tpmparams) 構造体へのポインター。 このパラメーターには NULL を指定できます。
 
 ### <a name="return-value"></a>戻り値
 

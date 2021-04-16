@@ -1,5 +1,5 @@
 ---
-title: '/sourceDependencies: ディレクティブ (List モジュールとヘッダー単位の依存関係)'
+title: '/sourceDependencies: ディレクティブ (モジュールとヘッダー ユニットの依存関係一覧)'
 description: 'Microsoft C++ の/sourceDependencies: ディレクティブコンパイラオプションのリファレンスガイド。'
 ms.date: 04/13/2020
 author: tylermsft
@@ -9,12 +9,12 @@ f1_keywords:
 helpviewer_keywords:
 - /sourceDependencies:directives compiler option
 - /sourceDependencies:directives
-ms.openlocfilehash: ecc2b107eae6a4f2a331084d7fe9813f34277915
-ms.sourcegitcommit: bac5dde649d5b0447de1d26a73365e36d74595f3
+ms.openlocfilehash: 6ac33db30a007226382d3ac331ab5f2699a85c8c
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107381718"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577133"
 ---
 # <a name="sourcedependenciesdirectives-list-module-and-header-unit-dependencies"></a>`/sourceDependencies:directives` (List モジュールとヘッダーユニットの依存関係)
 
@@ -28,7 +28,7 @@ ms.locfileid: "107381718"
 - *`.ifc`* このスイッチではコンパイルではなくプロジェクトファイルのスキャンが行われるため、出力 JSON ファイルにはインポートされたモジュールとインポートされたヘッダーユニット (ファイル) の一覧が表示されません。 そのため、一覧に作成されたモジュールまたはヘッダーユニットはありません。
 - 直接インポートされたモジュールまたはヘッダーユニットのみが一覧表示されます。 インポートされたモジュールまたはヘッダーユニット自体の依存関係は表示されません。
 - ヘッダーファイルの依存関係は表示されません。 つまり、 `#include <file>` または `#include "file"` 依存関係は表示されません。
-- `/sourceDependencies:directives`は、ファイルをビルドする前に使用することを意図してい *`.ifc`* ます。
+- `/sourceDependencies:directives` は、ファイルをビルドする前に使用することを意図してい *`.ifc`* ます。
 
 ## <a name="syntax"></a>構文
 
@@ -57,7 +57,7 @@ ms.locfileid: "107381718"
 
 すべてのファイルパスは、出力に絶対パスとして表示されます。
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 次のサンプルコードを指定します。
 

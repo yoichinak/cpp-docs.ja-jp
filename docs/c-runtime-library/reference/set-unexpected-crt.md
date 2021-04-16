@@ -27,12 +27,12 @@ helpviewer_keywords:
 - unexpected function
 - exception handling, termination
 ms.assetid: ebcef032-4771-48e5-88aa-2a1ab8750aa6
-ms.openlocfilehash: b9918e152a5d27c853aef7769b932ee4efedeef8
-ms.sourcegitcommit: 1cd8f8a75fd036ffa57bc70f3ca869042d8019d4
+ms.openlocfilehash: f5922cb5fb6b06cc809818fcfd324b6fc825c5a6
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98242632"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577107"
 ---
 # <a name="set_unexpected-crt"></a>`set_unexpected` .CRT
 
@@ -53,7 +53,7 @@ unexpected_function set_unexpected( unexpected_function unexpFunction );
 
 **`_set_unexpected`** 前の関数を後で復元できるように、によって登録された前の終了関数へのポインターを返します。 前の関数が設定されていない場合は、戻り値を使用して既定の動作を復元できます。この値はでもかまい **`NULL`** ません。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 関数は、 **`set_unexpected`** によって呼び出される関数として *関数* をインストールし **`unexpected`** ます。 **`unexpected`** は、現在の C++ 例外処理の実装では使用されません。 **`unexpected_function`** 型は EH で定義されています。ユーザー定義の予期しない関数へのポインターとしての H。を返す *関数* **`void`** 。 *カスタム関数関数は*、呼び出し元に戻らないようにする必要があります。
 
@@ -67,7 +67,7 @@ typedef void ( *unexpected_function )( );
 
 マルチ スレッド環境では、予期しない関数はスレッドごとに別々に管理されます。 新しいスレッドは各々、それぞれの予期しない関数をインストールする必要があります。 したがって、各スレッドがそれぞれの予期しない処理を担当します。
 
-現在の C++ 例外処理の実装では、 **`unexpected`** は **`terminate`** 既定でを呼び出し、例外処理ランタイムライブラリによって呼び出されることはありません。 **`unexpected`** **Termで** はなくを呼び出すことには、特に利点はありません。
+現在の C++ 例外処理の実装では、 **`unexpected`** は **`terminate`** 既定でを呼び出し、例外処理ランタイムライブラリによって呼び出されることはありません。 ではなくを呼び出すことには、特に利点はありません **`unexpected`** **`terminate`** 。
 
 動的にリンクされた **`set_unexpected`** すべての dll または exe に対して1つのハンドラーがあります。ハンドラーを呼び出しても別のハンドラー **`set_unexpected`** に置き換えられるか、または別の dll または EXE で設定されたハンドラーを置き換えることができます。
 
@@ -79,7 +79,7 @@ typedef void ( *unexpected_function )( );
 
 互換性について詳しくは、「 [Compatibility](../../c-runtime-library/compatibility.md)」をご覧ください。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 [例外処理ルーチン](../../c-runtime-library/exception-handling-routines.md)\
 [`abort`](abort.md)\

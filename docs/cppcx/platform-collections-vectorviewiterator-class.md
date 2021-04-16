@@ -8,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - VectorViewIterator Class
 ms.assetid: be3aa1ae-e6ba-4a06-8d6b-86d8128026f7
-ms.openlocfilehash: f10d6c31e60c4f8deac2ba924ec5f9de6faec30c
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: fe5e1add183aa69bd4632355082c615378fd4050
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97176133"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576873"
 ---
 # <a name="platformcollectionsvectorviewiterator-class"></a>Platform::Collections::VectorViewIterator クラス
 
@@ -75,7 +75,7 @@ VectorViewIterator テンプレート クラスの型名。
 
 `VectorViewIterator`
 
-### <a name="requirements"></a>要件
+### <a name="requirements"></a>必要条件
 
 **ヘッダー:** collection.h
 
@@ -403,7 +403,7 @@ explicit VectorViewIterator(
 
 ### <a name="parameters"></a>パラメーター
 
-*v*<br/>
+*画像*<br/>
 IVectorView \<T> オブジェクトです。
 
 ### <a name="remarks"></a>解説

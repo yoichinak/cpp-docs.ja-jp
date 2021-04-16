@@ -46,14 +46,14 @@ helpviewer_keywords:
 - tcscpy_s function
 - wcscpy_s function
 ms.assetid: 611326f3-7929-4a5d-a465-a4683af3b053
-ms.openlocfilehash: 3cbfa2b2f8450adf07b2040fb2be0932377c9e37
-ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
+ms.openlocfilehash: 935fd90e08d44f2bc2a7a8c44a3089d411d370d2
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539563"
+ms.locfileid: "107577094"
 ---
-# <a name="strcpy_s-wcscpy_s-_mbscpy_s-_mbscpy_s_l"></a>`strcpy_s`、 `wcscpy_` 、、 `_mbscpy_s``_mbscpy_s_l`
+# <a name="strcpy_s-wcscpy_s-_mbscpy_s-_mbscpy_s_l"></a>`strcpy_s`, `wcscpy_s`, `_mbscpy_s`, `_mbscpy_s_l`
 
 文字列をコピーします。 これらのバージョン[ `strcpy` `wcscpy` `_mbscpy` のでは](strcpy-wcscpy-mbscpy.md)、「 [CRT のセキュリティ機能](../../c-runtime-library/security-features-in-the-crt.md)」の説明にあるとおり、セキュリティが強化されています。
 
@@ -137,7 +137,7 @@ null で終わる元の文字列バッファー。
 |any|any|**`NULL`**|**`EINVAL`**|*`dest[0]`* 0に設定|
 |any|0 または小さすぎる|any|**`ERANGE`**|*`dest[0]`* 0に設定|
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 関数は、 **`strcpy_s`** 終端の null 文字を含むのアドレスの内容を、 *`src`* で指定した場所にコピーし *`dest`* ます。 コピー先の文字列には、コピー元の文字列とその終端の NULL 文字を保持できるサイズが必要です。 **`strcpy_s`** コピー元とコピー先の文字列が重なり合っている場合、の動作は未定義です。
 
@@ -232,7 +232,7 @@ int main(void)
 stringBuffer = Hello world from wcscpy_s and wcscat_s!
 ```
 
-## <a name="see-also"></a>こちらもご覧ください
+## <a name="see-also"></a>関連項目
 
 [文字列操作](../../c-runtime-library/string-manipulation-crt.md) <br/>
 [`strcat`, `wcscat`, `_mbscat`, `_mbscat_l`](strcat-wcscat-mbscat.md) <br/>

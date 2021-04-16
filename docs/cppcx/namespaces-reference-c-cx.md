@@ -5,12 +5,12 @@ ms.date: 01/22/2017
 helpviewer_keywords:
 - C++/CX namespaces
 ms.assetid: 5ebc0b49-1f22-48a7-90c4-a310bab9aba6
-ms.openlocfilehash: 3c77b0bdae8443f40b6715c602779aebdf35f895
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: d5dbf2826c56bb99addb823d99f66d7065bb2f4a
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97282862"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576860"
 ---
 # <a name="namespaces-reference-ccx"></a>名前空間参照 (C++/CX)
 

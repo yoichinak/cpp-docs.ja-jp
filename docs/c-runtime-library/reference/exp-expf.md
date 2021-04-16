@@ -36,12 +36,12 @@ helpviewer_keywords:
 - expl function
 - calculating exponentials
 - exp function
-ms.openlocfilehash: ac51744fe332fbf378139df11e7d07afe44029ca
-ms.sourcegitcommit: 92dc6d99ba5dcf3b64dee164df2d29beb1e608da
+ms.openlocfilehash: 20a22600d068569468b764ff07519d4292afbfea
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98564005"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577206"
 ---
 # <a name="exp-expf-expl"></a>`exp`, `expf`, `expl`
 
@@ -86,7 +86,7 @@ long double expl(
 
 関数には、 **`exp`** ストリーミング SIMD 拡張命令 2 (SSE2) を使用する実装があります。 [`_set_SSE2_enable`](set-sse2-enable.md)SSE2 実装の使用に関する情報と制限については、「」を参照してください。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 C++ ではオーバーロードが可能であるため、 **`exp`** または引数を受け取るのオーバーロードを呼び出すことができ **`float`** **`long double`** ます。 C プログラムでは、 `<tgmath.h>` この関数を呼び出すためにマクロを使用している場合を除き、は **`exp`** 常にを受け取り、を返し **`double`** ます。
 
@@ -96,7 +96,7 @@ C++ ではオーバーロードが可能であるため、 **`exp`** または�
 
 ## <a name="requirements"></a>要件
 
-|関数|必須の C ヘッダー|必須の C++ ヘッダー|
+|機能|必須の C ヘッダー|必須の C++ ヘッダー|
 |--------------|---------------------|---|
 |**`exp`**, **`expf`**, **`expl`**|`<math.h>`|`<cmath>` または `<math.h>`|
 |**`exp`** マクロ| `<tgmath.h>` ||
@@ -127,5 +127,5 @@ exp( 2.302585 ) = 10.000000
 ## <a name="see-also"></a>関連項目
 
 [浮動小数点のサポート](../../c-runtime-library/floating-point-support.md)\
-[左右`og, logf, log10, log10f`](log-logf-log10-log10f.md)\
+[`log, logf, log10, log10f`](log-logf-log10-log10f.md)\
 [`_CIexp`](../../c-runtime-library/ciexp.md)

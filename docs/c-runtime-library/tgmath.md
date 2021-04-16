@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 helpviewer_keywords:
 - CRT tgmath.h
-ms.openlocfilehash: 70ade08387ebbca9dd1ecd68cce92f5fd8ba936b
-ms.sourcegitcommit: be469dd87453255b0e35e333712c8207b09b3dd4
+ms.openlocfilehash: 38d6e5fba1f2087f692d7b18526f5da43d0683e1
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97411851"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577219"
 ---
 # <a name="type-generic-math"></a>ジェネリック型数値演算
 
@@ -26,7 +26,7 @@ C ランタイムライブラリの数学関数は、実際には複雑なバリ
 
 次の表に、で使用できるマクロ `<tgmath.h>` とその展開方法を示します。 `modf` は、対応する型汎用マクロを持たないため、このテーブルには含まれません。これは、複雑な型解決を行わずに安全にする方法が明確でないためです。
 
-|マクロ  |Real</br>`float`  | Real</br>`double` | Real</br>`long double` | Complex</br>`float` | Complex</br>`double` | Complex</br>`long double` |
+|マクロ  |Real</br>`float`  | Real</br>`double` | Real</br>`long double` | 複合</br>`float` | 複合</br>`double` | 複合</br>`long double` |
 |---------|---------|---------|---------|---------|---------|---------|
 `acos` | [`acosf`](reference/mbsnbicmp-mbsnbicmp-l.md) | [`acos`](reference/mbsnbicmp-mbsnbicmp-l.md) | [`acosl`](reference/mbsnbicmp-mbsnbicmp-l.md) | [`cacosf`](reference/cacos-cacosf-cacosl.md) | [`cacos`](reference/cacos-cacosf-cacosl.md) | [`cacosl`](reference/cacos-cacosf-cacosl.md) |
 `acosh` | [`acoshf`](reference/acosh-acoshf-acoshl.md) | [`acosh`](reference/acosh-acoshf-acoshl.md) | [`acoshl`](reference/acosh-acoshf-acoshl.md) | [`cacoshf`](reference/cacosh-cacoshf-cacoshl.md) | [`cacosh`](reference/cacosh-cacoshf-cacoshl.md) | [`cacoshl`](reference/cacosh-cacoshf-cacoshl.md) |
@@ -93,7 +93,7 @@ C ランタイムライブラリの数学関数は、実際には複雑なバリ
 
 [std: c++ 11](../build/reference/std-specify-language-standard-version.md) 以降が必要です。
 
-Windows SDK version 10.0.20201.0 以降。 現在、これは Insider ビルドで、 [Windows Insider Preview ダウンロード](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK)からダウンロードできます。 この SDK をインストールして使用する方法については、「 [C11 And C17: はじめに](https://devblogs.microsoft.com/cppblog/c11-and-c17-standard-support-arriving-in-msvc/#c11-and-c17-getting-started) 」を参照してください。
+Windows SDK バージョン 10.0.20201.0 以降。 現在、これは Insider ビルドで、 [Windows Insider Preview ダウンロード](https://www.microsoft.com/software-download/windowsinsiderpreviewSDK)からダウンロードできます。 この SDK をインストールして使用する方法については、「 [C11 And C17: はじめに](https://devblogs.microsoft.com/cppblog/c11-and-c17-standard-support-arriving-in-msvc/#c11-and-c17-getting-started) 」を参照してください。
 
 ## <a name="see-also"></a>関連項目
 

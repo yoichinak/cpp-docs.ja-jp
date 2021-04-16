@@ -1,27 +1,27 @@
 ---
 title: Microsoft マクロアセンブラー BNF 文法
 description: BNF x64 用 MASM の説明。
-ms.date: 12/17/2019
+ms.date: 04/15/2021
 helpviewer_keywords:
 - MASM (Microsoft Macro Assembler), BNF reference
-ms.openlocfilehash: cb315746d95084e672f52b194a21287cff63cc47
-ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
+ms.openlocfilehash: bbfbc40cec517ec3c29c8deae24f6a4e97dd0af0
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/16/2021
-ms.locfileid: "107539580"
+ms.locfileid: "107576847"
 ---
 # <a name="microsoft-macro-assembler-bnf-grammar"></a>Microsoft マクロアセンブラー BNF 文法
 
 このページには、MASM 文法の BNF の説明が含まれています。 参照への補足として提供されており、完全な保証はありません。 キーワード、パラメーター、操作などの詳細については、リファレンスを参照してください。
 
-BNF の使用方法を示すために、次の図は、非終端要素から始まる TYPEDEF ディレクティブの定義を示して *`typedefDir`* います。
+BNF の使用方法を示すために、次の図は、非終端要素から始まるディレクティブの定義を示して **`TYPEDEF`** *`typedefDir`* います。
 
 ![TypedefDir を生成する端末と非終端の階層を示すグラフ。](media/bnf.png)
 
 各水平中かっこの下のエントリは、、、、などの端末です **`NEAR16`** **`NEAR32`** **`FAR16`** **`FAR32`** 。 または、、、、などの非終端要素で、 *`qualifier`* *`qualifiedType`* *`distance`* *`protoSpec`* さらに定義することができます。 定義で斜体になっている各非終端要素 *`typedefDir`* は、BNF 内のエントリでもあります。 3つの縦線は、非終端要素の分岐定義を示しています。わかりやすくするために、この図は説明しません。
 
-BNF 文法では、再帰的な定義が許可されます。 たとえば、文法では、qualifiedType の定義として qualifiedType を使用します。これは、修飾子の定義のコンポーネントでもあります。 " &vert; " 記号は、たとえば、代替式から選択を指定し *`endOfLine`* &vert; *`comment`* ます。 二重中かっこは、⟦⟧などの省略可能なパラメーターを指定し *`macroParmList`* ます。 角かっこは、実際にはソースコードには表示されません。
+BNF 文法では、再帰的な定義が許可されます。 たとえば、文法はの *`qualifiedType`* 定義としてを使用し *`qualifiedType`* ます。これは、の定義のコンポーネントでもあり *`qualifier`* ます。 " &vert; " 記号は、たとえば、代替式から選択を指定し *`endOfLine`* &vert; *`comment`* ます。 二重中かっこは、⟦⟧などの省略可能なパラメーターを指定し *`macroParmList`* ます。 角かっこは、実際にはソースコードには表示されません。
 
 ## <a name="masm-nonterminals"></a>MASM Nonterminals
 
@@ -39,6 +39,9 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 
 *`altId`*\
 &emsp; *`id`*
+
+*`alpha`*\
+&emsp; 任意の大文字または小文字 (A-z)、または次の4つの文字のいずれか。 `@ _ $ ?`
 
 *`arbitraryText`*\
 &emsp; *`charList`*
@@ -101,7 +104,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`aExpr`* &vert; *`cExpr`* **`||`** *`aExpr`*
 
 *`character`*\
-&emsp;0 ~ 255 の範囲の、改行を除く任意の文字 (10)。
+&emsp; 0 ~ 255 の範囲の、改行を除く任意の文字 (10)。
 
 *`charList`*\
 &emsp; *`character`* &vert; *`charList`* *`character`*
@@ -118,7 +121,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`commList`* *`;;`*
 
 *`comment`*\
-&emsp;; *`text`* *`;;`*
+&emsp; **`;`** *`text`* *`;;`*
 
 *`commentDir`*\
 &emsp; **`COMMENT`** *`delimiter`*\
@@ -139,7 +142,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 
 *`contextDir`*\
 &emsp; **`PUSHCONTEXT`** *`contextItemList`* *`;;`*\
-&emsp; **`POPCONTEXT`** *`contextItemList`* *`;;`*
+&emsp; &vert; **`POPCONTEXT`** *`contextItemList`* *`;;`*
 
 *`contextItem`*\
 &emsp; **`ASSUMES`** &vert; **`RADIX`** &vert; **`LISTING`** &vert; **`CPU`** &vert; **`ALL`**
@@ -154,16 +157,16 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`controlIf`* &vert; *`controlBlock`*
 
 *`controlElseif`*\
-&emsp; **`.ELSEIF`** &emsp; *`cExpr`* *`;;`*\
+&emsp; **`.ELSEIF`** *`cExpr`* *`;;`*\
 &emsp; *`directiveList`* \
 &emsp; ⟦ *`controlElseif`* ⟧
 
 *`controlIf`*\
-&emsp; **`.IF`** &emsp; *`cExpr`* *`;;`*\
+&emsp; **`.IF`** *`cExpr`* *`;;`*\
 &emsp; *`directiveList`*\
 &emsp; ⟦ *`controlElseif`* ⟧\
-&emsp; **`.ELSE`** *`;;`*\
-&emsp; ⟦ *`directiveList`*⟧\
+&emsp; ⟦ **`.ELSE`** *`;;`*\
+&emsp; *`directiveList`*⟧\
 &emsp; **`.ENDIF`** *`;;`*
 
 *`coprocessor`*\
@@ -174,7 +177,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 
 *`crefOption`*\
 &emsp; **`.CREF`**\
-&emsp; &vert; **`.XCREF`**  ⟦ *`idList`* ⟧\
+&emsp; &vert; **`.XCREF`** ⟦ *`idList`* ⟧\
 &emsp; &vert; **`.NOCREF`** ⟦ *`idList`* ⟧
 
 *`cxzExpr`*\
@@ -207,7 +210,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; *`decNumber`* *`decdigit`*
 
 *`delimiter`*\
-&emsp;を除く任意の文字 *`whiteSpaceCharacter`*
+&emsp; を除く任意の文字 *`whiteSpaceCharacter`*
 
 *`digits`*\
 &emsp; *`decdigit`*\
@@ -287,8 +290,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; **`ST`** **`(`** *`expr`* **`)`**
 
 *`echoDir`*\
-&emsp; **`ECHO`**\
-&emsp; *`arbitraryText`* *`;;`*\
+&emsp; **`ECHO`** *`arbitraryText`* *`;;`*\
 &emsp; **`%OUT`** *`arbitraryText`* *`;;`*
 
 *`elseifBlock`*\
@@ -344,10 +346,10 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; **`.ERR2`** ⟦ *`textItem`* ⟧
 
 *`exitDir`*\
-&emsp; **`.EXIT`** &emsp; ⟦ *`expr`* ⟧ *`;;`*
+&emsp; **`.EXIT`** ⟦ *`expr`* ⟧ *`;;`*
 
 *`exitmDir`*\
-&emsp;: **`EXITM`** &vert; **`EXITM`** *`textItem`*
+&emsp; **`:`** **`EXITM`** &vert; **`EXITM`** *`textItem`*
 
 *`exponent`*\
 &emsp; **`E`** ⟦ *`sign`* ⟧ *`decNumber`*
@@ -399,7 +401,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 
 *`floatNumber`*\
 &emsp; ⟦ *`sign`* ⟧ *`decNumber`* **`.`** ⟦ *`decNumber`* ⟧ ⟦ *`exponent`* ⟧\
-&emsp; &vert; *`digits`* **`R`** &vert; *`digits`* **`r`**
+&emsp; &vert; *`digits`* **`R`**\
+&emsp; &vert; *`digits`* **`r`**
 
 *`forcDir`*\
 &emsp; **`FORC`** &vert; **`IRPC`**
@@ -439,7 +442,9 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; *`aliasDir`*
 
 *`gpRegister`*\
-&emsp; **`AX`** &vert; **`EAX`** &vert; **`CX`** &vert; **`ECX`** &vert; **`DX`** &vert; **`EDX`** &vert; **`BX`** &vert; **`EBX`** &vert; **`DI`** &vert; **`EDI`** &vert; **`SI`** &vert; **`ESI`** &vert; **`BP`** &vert; **`EBP`** &vert; **`SP`** &vert; **`ESP`** &vert; **`RSP`** &vert; **`R8W`** &vert; **`R8D`** &vert; **`R9W`** &vert; **`R9D`** &vert; **`R12D`** &vert; **`R13W`** &vert; **`R13D`** &vert; **`R14W`** &vert; **`R14D`**
+&emsp; **`AX`** &vert; **`EAX`** &vert; **`CX`** &vert; **`ECX`** &vert; **`DX`** &vert; **`EDX`** &vert; **`BX`** &vert; **`EBX`**\
+&emsp; &vert; **`DI`** &vert; **`EDI`** &vert; **`SI`** &vert; **`ESI`** &vert; **`BP`** &vert; **`EBP`** &vert; **`SP`** &vert; **`ESP`**\
+&emsp; &vert; **`R8W`** &vert; **`R8D`** &vert; **`R9W`** &vert; **`R9D`** &vert; **`R12D`** &vert; **`R13W`** &vert; **`R13D`** &vert; **`R14W`** &vert; **`R14D`**
 
 *`groupDir`*\
 &emsp; *`groupId`* **`GROUP`** *`segIdList`*
@@ -448,10 +453,14 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`id`*
 
 *`hexdigit`*\
-&emsp; **`a`** &vert; **`b`** &vert; **`c`** &vert; **`d`** &vert; **`e`** &vert; **`f`** &vert; **`A`** &vert; **`B`** &vert; **`C`** &vert; **`D`** &vert; **`E`** &vert; **`F`**
+&emsp; **`a`** &vert; **`b`** &vert; **`c`** &vert; **`d`** &vert; **`e`** &vert; **`f`**\
+&emsp; &vert; **`A`** &vert; **`B`** &vert; **`C`** &vert; **`D`** &vert; **`E`** &vert; **`F`**
 
 *`id`*\
-&emsp;識別子の最初の文字は、大文字または小文字の英字 ( `[A–Za-z]` ) または次の4つの文字のいずれかになります。 `@ _ $ ?` 残りの文字は、これらの同じ文字または10進数字 () のいずれかになり `[0–9]` ます。 最大長は247文字です。
+&emsp; *`alpha`*\
+&emsp; &vert; *`id`* *`alpha`*\
+&emsp; &vert; *`id`* *`decdigit`*\
+&emsp; 最大長は247文字です。
 
 *`idList`*\
 &emsp; *`id`* &vert; *`idList`* **`,`** *`id`*
@@ -519,7 +528,9 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; ⟦ *`instrPrefix`* ⟧ *`asmInstruction`*
 
 *`invokeArg`*\
-&emsp; *`register`* **`::`** *`register`* &vert; *`expr`* &vert; **`ADDR`** *`expr`*
+&emsp; *`register`* **`::`** *`register`*\
+&emsp; &vert; *`expr`*\
+&emsp; &vert; **`ADDR`** *`expr`*
 
 *`invokeDir`*\
 &emsp; **`INVOKE`** *`expr`* ⟦ **`,`** ⟦ *`;;`* ⟧ *`invokeList`* ⟧ *`;;`*
@@ -528,7 +539,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`invokeArg`* &vert; *`invokeList`* **`,`** ⟦ *`;;`* ⟧ *`invokeArg`*
 
 *`keyword`*\
-&emsp;任意の予約語。
+&emsp; 任意の予約語。
 
 *`keywordList`*\
 &emsp; *`keyword`* &vert; *`keyword`* *`keywordList`*
@@ -652,11 +663,10 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`TINY`** &vert; **`SMALL`** &vert; **`MEDIUM`** &vert; **`COMPACT`** &vert; **`LARGE`** &vert; **`HUGE`** &vert; **`FLAT`**
 
 *`mnemonic`*\
-&emsp;命令名。
+&emsp; 命令名。
 
 *`modelDir`*\
-&emsp; **`.MODEL`**\
-&emsp; *`memOption`* ⟦ **`,`** *`modelOptlist`* ⟧ *`;;`*
+&emsp; **`.MODEL`** *`memOption`* ⟦ **`,`** *`modelOptlist`* ⟧ *`;;`*
 
 *`modelOpt`*\
 &emsp; *`langType`* &vert; *`stackOption`*
@@ -671,8 +681,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`*`** &vert; **`/`** &vert; **`MOD`**
 
 *`nameDir`*\
-&emsp; **`NAME`**\
-&emsp; *`id`* *`;;`*
+&emsp; **`NAME`** *`id`* *`;;`*
 
 *`nearfar`*\
 &emsp; **`NEAR`** &vert; **`FAR`**
@@ -686,7 +695,9 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`offsetDirType`* *`;;`*
 
 *`offsetDirType`*\
-&emsp; **`EVEN`** &vert; **`ORG`** *`immExpr`* &vert; **`ALIGN`** ⟦ *`constExpr`* ⟧
+&emsp; **`EVEN`**\
+&emsp; &vert; **`ORG`** *`immExpr`*\
+&emsp; &vert; **`ALIGN`** ⟦ *`constExpr`* ⟧
 
 *`offsetType`*\
 &emsp; **`GROUP`** &vert; **`SEGMENT`** &vert; **`FLAT`**
@@ -698,7 +709,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`OPTION`** *`optionList`* *`;;`*
 
 *`optionItem`*\
-&emsp; **`CASEMAP`** : *`mapType`*\
+&emsp; **`CASEMAP`** **`:`** *`mapType`*\
 &emsp; &vert; **`DOTNAME`** &vert; **`NODOTNAME`**\
 &emsp; &vert; **`EMULATOR`** &vert; **`NOEMULATOR`**\
 &emsp; &vert; **`EPILOGUE`** **`:`** *`macroId`*\
@@ -743,7 +754,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`constExpr`*
 
 *`parm`*\
-&emsp; *`parmId`* ⟦ **`:`** *`qualifiedType`* ⟧ &vert; *`parmId`* ⟦ *`constExpr`* ⟧ ⟦ **`:`** *`qualifiedType`* ⟧
+&emsp; *`parmId`* ⟦ **`:`** *`qualifiedType`* ⟧\
+&emsp; &vert; *`parmId`* ⟦ *`constExpr`* ⟧ ⟦ **`:`** *`qualifiedType`* ⟧
 
 *`parmId`*\
 &emsp; *`id`*
@@ -761,8 +773,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`expr`* *`binaryOp`* *`expr`* &vert; *`flagName`* &vert; *`expr`*
 
 *`procDir`*\
-&emsp; *`procId`* **`PROC`**\
-&emsp; ⟦ *`pOptions`* ⟧ ⟦ **`<`** *`macroArgList`* **`>`** ⟧\
+&emsp; *`procId`* **`PROC`** ⟦ *`pOptions`* ⟧ ⟦ **`<`** *`macroArgList`* **`>`** ⟧\
 &emsp; ⟦ *`usesRegs`* ⟧ ⟦ *`procParmList`* ⟧
 
 *`processor`*\
@@ -795,7 +806,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; *`protoList`* **`,`** ⟦ *`;;`* ⟧ *`protoArg`*
 
 *`protoSpec`*\
-&emsp; ⟦ *`distance`* ⟧ ⟦ *`langType`* ⟧ ⟦ *`protoArgList`* ⟧ &vert; *`typeId`*
+&emsp; ⟦ *`distance`* ⟧ ⟦ *`langType`* ⟧ ⟦ *`protoArgList`* ⟧\
+&emsp; &vert; *`typeId`*
 
 *`protoTypeDir`*\
 &emsp; *`id`* **`PROTO`** *`protoSpec`*
@@ -813,7 +825,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`PURGE`** *`macroIdList`*
 
 *`qualifiedType`*\
-&emsp; *`type`* &vert; ⟦ *`distance`* ⟧ **`PTR`** ⟦ *`qualifiedType`* ⟧
+&emsp; *`type`*\
+&emsp; &vert; ⟦ *`distance`* ⟧ **`PTR`** ⟦ *`qualifiedType`* ⟧
 
 *`qualifier`*\
 &emsp; *`qualifiedType`* &vert; **`PROTO`** *`protoSpec`*
@@ -822,16 +835,19 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`"`** &vert; **`'`**
 
 *`qwordRegister`*\
-&emsp; **`RAX`** &vert; **`RCX`** &vert; **`RDX`** &vert; **`RBX`** &vert; **`RDI`** &vert; **`RSI`** &vert; **`RBP`** &vert; **`R8`** &vert; **`R9`** &vert; **`R10`** &vert; **`R11`** &vert; **`R12`** &vert; **`R13`** &vert; **`R14`** &vert; **`R15`**
+&emsp; **`RAX`** &vert; **`RCX`** &vert; **`RDX`** &vert; **`RBX`** &vert; **`RSP`** &vert; **`RBP`** &vert; **`RSI`** &vert; **`RDI`**\
+&emsp; &vert; **`R8`** &vert; **`R9`** &vert; **`R10`** &vert; **`R11`** &vert; **`R12`** &vert; **`R13`** &vert; **`R14`** &vert; **`R15`**
 
 *`radixDir`*\
 &emsp; **`.RADIX`** *`constExpr`* *`;;`*
 
 *`radixOverride`*\
-&emsp; **`h`** &vert; **`o`** &vert; **`q`** &vert; **`t`** &vert; **`y`** &vert; **`H`** &vert; **`O`** &vert; **`Q`** &vert; **`T`** &vert; **`Y`**
+&emsp; **`h`** &vert; **`o`** &vert; **`q`** &vert; **`t`** &vert; **`y`**\
+&emsp; &vert; **`H`** &vert; **`O`** &vert; **`Q`** &vert; **`T`** &vert; **`Y`**
 
 *`recordConst`*\
-&emsp; *`recordTag`* **`{`** *`oldRecordFieldList`* **`}`** &vert; *`recordTag`* **`<`** *`oldRecordFieldList`* **`>`**
+&emsp; *`recordTag`* **`{`** *`oldRecordFieldList`* **`}`**\
+&emsp; &vert; *`recordTag`* **`<`** *`oldRecordFieldList`* **`>`**
 
 *`recordDir`*\
 &emsp; *`recordTag`* **`RECORD`** *`bitDefList`* *`;;`*
@@ -851,7 +867,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`id`*
 
 *`register`*\
-&emsp; *`specialRegister`* &vert; *`gpRegister`* &vert; *`byteRegister`* &vert; *`qwordRegister`* &vert;  *`fpuRegister`* &vert; *`SIMDRegister`* &vert; *`segmentRegister`*
+&emsp; *`specialRegister`* &vert; *`gpRegister`* &vert; *`byteRegister`* &vert; *`qwordRegister`* &vert; *`fpuRegister`* &vert; *`SIMDRegister`* &vert; *`segmentRegister`*
 
 *`regList`*\
 &emsp; *`register`* &vert; *`regList`* *`register`*
@@ -868,7 +884,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`REPEAT`** &vert; **`REPT`**
 
 *`scalarInstList`*\
-&emsp; *`initValue`* &vert; *`scalarInstList`* **`,`** ⟦ *`;;`* ⟧ *`initValue`*
+&emsp; *`initValue`*\
+&emsp; &vert; *`scalarInstList`* **`,`** ⟦ *`;;`* ⟧ *`initValue`*
 
 *`segAlign`*\
 &emsp; **`BYTE`** &vert; **`WORD`** &vert; **`DWORD`** &vert; **`PARA`** &vert; **`PAGE`**
@@ -877,13 +894,12 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`PUBLIC`** &vert; **`STACK`** &vert; **`COMMON`** &vert; **`MEMORY`** &vert; **`AT`** *`constExpr`* &vert; **`PRIVATE`**
 
 *`segDir`*\
-&emsp; **`.CODE`**\
-&emsp; ⟦ *`segId`* ⟧\
+&emsp; **`.CODE`** ⟦ *`segId`* ⟧\
 &emsp; &vert; **`.DATA`**\
-&emsp; &vert;  **`.DATA?`**\
+&emsp; &vert; **`.DATA?`**\
 &emsp; &vert; **`.CONST`**\
-&emsp; &vert; **`.FARDATA`**⟦ *`segId`* ⟧\
-&emsp; &vert;  **`.FARDATA?`** ⟦ *`segId`* ⟧\
+&emsp; &vert; **`.FARDATA`** ⟦ *`segId`* ⟧\
+&emsp; &vert; **`.FARDATA?`** ⟦ *`segId`* ⟧\
 &emsp; &vert; **`.STACK`** ⟦ *`constExpr`* ⟧
 
 *`segId`*\
@@ -930,7 +946,8 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 *`simdRegister`*\
 &emsp; **`MM0`** &vert; **`MM1`** &vert; **`MM2`** &vert; **`MM3`** &vert; **`MM4`** &vert; **`MM5`** &vert; **`MM6`** &vert; **`MM7`**\
 &emsp; &vert; *`xmmRegister`*\
-&emsp; &vert; **`YMM0`** &vert; **`YMM1`** &vert; **`YMM2`** &vert; **`YMM3`** &vert; **`YMM4`** &vert; **`YMM5`** &vert; **`YMM6`** &vert; **`YMM7`** &vert; **`YMM8`** &vert; **`YMM9`** &vert; **`YMM10`** &vert; **`YMM11`** &vert; **`YMM12`** &vert; **`YMM13`** &vert; **`YMM14`** &vert; **`YMM15`**
+&emsp; &vert; **`YMM0`** &vert; **`YMM1`** &vert; **`YMM2`** &vert; **`YMM3`** &vert; **`YMM4`** &vert; **`YMM5`** &vert; **`YMM6`** &vert; **`YMM7`**\
+&emsp; &vert; **`YMM8`** &vert; **`YMM9`** &vert; **`YMM10`** &vert; **`YMM11`** &vert; **`YMM12`** &vert; **`YMM13`** &vert; **`YMM14`** &vert; **`YMM15`**
 
 *`simpleExpr`*\
 &emsp; **`(`** *`cExpr`* **`)`** &vert; *`primary`*
@@ -949,7 +966,9 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; *`endOfLine`*
 
 *`specialRegister`*\
-&emsp; **`CR0`** &vert; **`CR2`** &vert; **`CR3`** &vert; **`DR0`** &vert; **`DR1`** &vert; **`DR2`** &vert; **`DR3`** &vert; **`DR6`** &vert; **`DR7`** &vert; **`TR3`** &vert; **`TR4`** &vert; **`TR5`** &vert; **`TR6`** &vert; **`TR7`**
+&emsp; **`CR0`** &vert; **`CR2`** &vert; **`CR3`**\
+&emsp; &vert; **`DR0`** &vert; **`DR1`** &vert; **`DR2`** &vert; **`DR3`** &vert; **`DR6`** &vert; **`DR7`**\
+&emsp; &vert; **`TR3`** &vert; **`TR4`** &vert; **`TR5`** &vert; **`TR6`** &vert; **`TR7`**
 
 *`stackOption`*\
 &emsp; **`NEARSTACK`** &vert; **`FARSTACK`**
@@ -974,8 +993,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`structTag`* *`structHdr`* ⟦ *`fieldAlign`* ⟧\
 &emsp; ⟦ **`,`** **`NONUNIQUE`** ⟧ *`;;`*\
 &emsp; *`structBody`*\
-&emsp; *`structTag`*\
-&emsp; **`ENDS`** *`;;`*
+&emsp; *`structTag`* **`ENDS`** *`;;`*
 
 *`structHdr`*\
 &emsp; **`STRUC`** &vert; **`STRUCT`** &vert; **`UNION`**
@@ -1001,7 +1019,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; *`simpleExpr`* &vert; **`!`** *`simpleExpr`*
 
 *`text`*\
-&emsp;*`textLiteral`* &vert; *`text`*&vert; **`!`** *`character`* *`text`* 文字 &vert; *`character`* &vert; **`!`***`character`*
+&emsp; *`textLiteral`* &vert; *`text`* *`character`* &vert; **`!`** *`character`* *`text`* &vert; *`character`* &vert; **`!`** *`character`*
 
 *`textDir`*\
 &emsp; *`id`* *`textMacroDir`* *`;;`*
@@ -1046,7 +1064,7 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; &vert; *`typeId`*
 
 *`typedefDir`*\
-&emsp;*`typeId`* **`TYPEDEF`** 修飾子
+&emsp; *`typeId`* **`TYPEDEF`** *`qualifier`*
 
 *`typeId`*\
 &emsp; *`id`*
@@ -1062,13 +1080,13 @@ BNF 文法では、再帰的な定義が許可されます。 たとえば、文
 &emsp; **`USES`** *`regList`*
 
 *`whileBlock`*\
-&emsp; **`.WHILE`**\
-&emsp; *`cExpr`* *`;;`*\
+&emsp; **`.WHILE`** *`cExpr`* *`;;`*\
 &emsp; *`blockStatements`* *`;;`*\
 &emsp; **`.ENDW`**
 
 *`whiteSpaceCharacter`*\
-&emsp;ASCII 8、9、11 ~ 13、26、32
+&emsp; ASCII 8、9、11 ~ 13、26、32
 
 *`xmmRegister`*\
-&emsp; **`XMM0`** &vert; **`XMM1`** &vert; **`XMM2`** &vert; **`XMM3`** &vert; **`XMM4`** &vert; **`XMM5`** &vert; **`XMM6`** &vert; **`XMM7`** &vert; **`XMM8`** &vert; **`XMM9`** &vert; **`XMM10`** &vert; **`XMM11`** &vert; **`XMM12`** &vert; **`XMM13`** &vert; **`XMM14`** &vert; **`XMM15`**
+&emsp; **`XMM0`** &vert; **`XMM1`** &vert; **`XMM2`** &vert; **`XMM3`** &vert; **`XMM4`** &vert; **`XMM5`** &vert; **`XMM6`** &vert; **`XMM7`**\
+&emsp; &vert; **`XMM8`** &vert; **`XMM9`** &vert; **`XMM10`** &vert; **`XMM11`** &vert; **`XMM12`** &vert; **`XMM13`** &vert; **`XMM14`** &vert; **`XMM15`**

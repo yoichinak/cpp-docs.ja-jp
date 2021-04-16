@@ -1,7 +1,7 @@
 ---
 description: '詳細情報: #ifdef ディレクティブと #ifndef ディレクティブ (C/c + +)'
 title: '#ifdef および #ifndef ディレクティブ (C/C++)'
-ms.date: 08/29/2019
+ms.date: 04/14/2021
 f1_keywords:
 - '#ifndef'
 - '#ifdef'
@@ -11,41 +11,40 @@ helpviewer_keywords:
 - ifdef directive (#ifdef)
 - ifndef directive (#ifndef)
 - '#ifndef directive'
-ms.assetid: 2b0be69d-9e72-45d8-8e24-e4130fb2455b
-ms.openlocfilehash: 4888e4516b57465974d99b1c9e8e6393e02f68c6
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 8a5d65f22e3ea5d7324c5c4c2d1222f74140ebc0
+ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97269290"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107577413"
 ---
-# <a name="ifdef-and-ifndef-directives-cc"></a>#ifdef ディレクティブと #ifndef ディレクティブ (C/c + +)
+# <a name="ifdef-and-ifndef-directives-cc"></a>`#ifdef``#ifndef`ディレクティブとディレクティブ (C/c + +)
 
-**#Ifdef** ディレクティブと **#ifndef** ディレクティブは、**定義さ** れた演算子と共に使用する場合、 [#if](hash-if-hash-elif-hash-else-and-hash-endif-directives-c-cpp.md)ディレクティブと同じ効果があります。
+**`#ifdef`** および **`#ifndef`** プリプロセッサディレクティブは、演算子と共に使用する場合、ディレクティブと同じ効果があり [`#if`](hash-if-hash-elif-hash-else-and-hash-endif-directives-c-cpp.md) **`defined`** ます。
 
 ## <a name="syntax"></a>構文
 
-> **#ifdef** *識別子*\
-> **#ifndef** *識別子*
+> **`#ifdef`** *`identifier`*\
+> **`#ifndef`** *`identifier`*
 
 これらのディレクティブは次のようになります。
 
-> **#if 定義された***識別子*\
-> **#if! が定義されました** *識別子*
+> **`#if defined`** *`identifier`*\
+> **`#if !defined`** *`identifier`*
 
 ## <a name="remarks"></a>解説
 
-任意の場所で使用できる **#ifdef** ディレクティブと **#ifndef** ディレクティブを使用でき `#if` ます。 識別子  `#if 1` が定義されている場合 、#ifdef 識別子ステートメントはと同じです。 これ `#if 0` は、 *識別子* が定義されていない場合、またはディレクティブによって定義されていない場合と同じです `#undef` 。 これらのディレクティブは、C または C++ ソース コードで宣言された識別子ではなく、`#define` で定義された識別子の有無を調べます。
+任意の場所で **`#ifdef`** 使用できるディレクティブとディレクティブを使用でき **`#ifndef`** `#if` ます。 **`#ifdef`** *`identifier`* ステートメントは、 `#if 1` *`identifier`* が定義されている場合と同じです。 これ `#if 0` *`identifier`* は、が定義されていない場合、またはディレクティブによって未定義になっている場合に相当し **`#undef`** ます。 これらのディレクティブは、C または C++ ソース コードで宣言された識別子ではなく、`#define` で定義された識別子の有無を調べます。
 
-これらのディレクティブは、言語の以前のバージョンとの互換性を維持するために用意されています。 ディレクティブで使用される **定義済み (** *識別子* **)** 定数式 `#if` が推奨されます。
+これらのディレクティブは、言語の以前のバージョンとの互換性を維持するために用意されています。 **`defined(`** *`identifier`* **`)`** ディレクティブと共に使用される定数式 `#if` が推奨されます。
 
-**#Ifndef** ディレクティブは、 **#ifdef** によってチェックされる条件の反対を確認します。 識別子が定義されていない場合、または定義がで削除されている場合 `#undef` 、条件は true (0 以外) になります。 それ以外の場合、条件は False (0) です。
+ディレクティブは、チェックされた **`#ifndef`** 条件の反対をチェックし **`#ifdef`** ます。 識別子が定義されていない場合、または定義がで削除されている場合 `#undef` 、条件は true (0 以外) になります。 それ以外の場合、条件は False (0) です。
 
 **Microsoft 固有の仕様**
 
-この *識別子* は、コマンドラインから [/d](../build/reference/d-preprocessor-definitions.md) オプションを使用して渡すことができます。 では、最大30個のマクロを指定でき `/D` ます。
+この *識別子* は、オプションを使用してコマンドラインから渡すことができ [`/D`](../build/reference/d-preprocessor-definitions.md) ます。 では、最大30個のマクロを指定でき `/D` ます。
 
-**#Ifdef** ディレクティブは、定義が存在するかどうかを確認する場合に役立ちます。これは、コマンドラインから定義を渡すことができるためです。 次に例を示します。
+ディレクティブは、定義が **`#ifdef`** 存在するかどうかを確認する場合に役立ちます。これは、コマンドラインから定義を渡すことができるためです。 次に例を示します。
 
 ```cpp
 // ifdef_ifndef.CPP
