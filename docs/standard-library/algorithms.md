@@ -9,18 +9,18 @@ helpviewer_keywords:
 - algorithm template function C++ library conventions
 - conventions [C++], C++ algorithm
 ms.assetid: dec9b373-7d5c-46cc-b7d2-21a938ecd0a6
-ms.openlocfilehash: 9d270b35720211c099876eb899e4ef5add9813cc
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: b5c053a4ac554685eb4f282db69cc48e99e2212e
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97163757"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539782"
 ---
 # <a name="algorithms"></a>アルゴリズム
 
 アルゴリズムは、C++ 標準ライブラリの基本的な部分です。 アルゴリズムは、コンテナー自体と共に機能するのではありません。反復子と共に機能します。 そのため、C++ 標準ライブラリ コンテナーのすべてではありませんが、そのほとんどで同じアルゴリズムを使用できます。 このセクションでは、C++ 標準ライブラリ アルゴリズムの規則と用語について説明します。
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 アルゴリズム テンプレート関数の説明では、いくつかの簡略な語句を使用しています。
 
@@ -46,13 +46,13 @@ ms.locfileid: "97163757"
 
 これらのアルゴリズムの一部では、暗黙的に述語 *X* \< *Y*. Other predicates that typically satisfy the strict weak ordering requirement are *X* > *Y*、 `less` (*x*、 *y*)、および `greater` (*x*, *y*) が使用されます。 ただし、 *X* Y などの述語が \<= *Y* and *X* > =  この要件を満たしていないことに注意してください。
 
-最初の範囲で反復子によって指定された一連の要素 \[ は *、* 演算子によって順序付けられたシーケンスです。各 n の範囲が0の場合、最後の1番目の場合は、 **<**  \[   -   述語  -   \! ( \* (*最初* の  +  *m*) < \* (*最初* の  +  *n*)) は true になります。 (要素は昇順で並べ替えられていることに注意してください)。述語関数 `operator<` 、またはそれに対する置換では、オペランドのいずれかを変更することはできません。 評価されるたびに同じ結果を生成する必要があり **`bool`** ます。また、いずれかのオペランドのコピーがオペランドとして置き換えられた場合は、同じ結果が生成される必要があります。 さらに、比較するオペランドに対して厳密弱順序を適用する必要があります。
+範囲内の反復子によって指定された一連の要素 \[ *`First`* *`Last`* ) は、演算子によって順序付けられたシーケンスであり、範囲 **`<`** 0 の各 *N* に対して、 \[ *`Last`*  -  *`First`* (*n*) 範囲内の各 *M* に対して *`Last`*  -  *`First`* 述語 \! ( \* ( *`First`*  +  *M*) < \* ( *`First`*  +  *n*)) が true になります。 (要素は昇順で並べ替えられていることに注意してください)。述語関数 `operator<` 、またはそれに対する置換では、オペランドのいずれかを変更することはできません。 評価されるたびに同じ結果を生成する必要があり **`bool`** ます。また、いずれかのオペランドのコピーがオペランドとして置き換えられた場合は、同じ結果が生成される必要があります。 さらに、比較するオペランドに対して厳密弱順序を適用する必要があります。
 
-範囲内の反復子によって指定された要素のシーケンス \[ `First` `Last` ) は、によって順序付けられたヒープです `operator<` (範囲1の各 *N* に対して \[ *最後* に  -  ) 述語 \! ( \* _最初_  <  \* (*最初* の  +  *n*)) は true です。 (最初の要素が最大値です)。その内部構造は、テンプレート関数 [make_heap](algorithm-functions.md#make_heap)、 [pop_heap](algorithm-functions.md#pop_heap)、および [push_heap](algorithm-functions.md#push_heap)にのみ認識されます。 順序付けされたシーケンスの場合と同様に、述語関数 `operator<` 、またはそれに対する置換では、オペランドのいずれかを変更することはできません。また、比較するオペランドに厳密弱順序を適用する必要があります。 評価されるたびに同じ結果を生成する必要があり **`bool`** ます。また、いずれかのオペランドのコピーがオペランドとして置き換えられた場合は、同じ結果が生成される必要があります。
+範囲内の反復子によって指定された要素のシーケンス \[ `First` `Last` ) は、によって順序付けられたヒープです `operator<` (範囲1の *N* ごとに \[ *`Last`*  -  *`First`* ) \! 。述語 ( \* _最初_  <  \* ( *`First`*  +  *n*)) は true です。 (最初の要素が最大値です)。その内部構造は、テンプレート関数、、およびにのみ認識され [`make_heap`](algorithm-functions.md#make_heap) [`pop_heap`](algorithm-functions.md#pop_heap) [`push_heap`](algorithm-functions.md#push_heap) ます。 順序付けされたシーケンスの場合と同様に、述語関数 `operator<` 、またはそれに対する置換では、オペランドのいずれかを変更することはできません。また、比較するオペランドに厳密弱順序を適用する必要があります。 評価されるたびに同じ結果を生成する必要があり **`bool`** ます。また、いずれかのオペランドのコピーがオペランドとして置き換えられた場合は、同じ結果が生成される必要があります。
 
-C++ 標準ライブラリのアルゴリズムは、 [\<algorithm>](algorithm.md) [\<numeric>](numeric.md) ヘッダーファイルとヘッダーファイルにあります。
+C++ 標準ライブラリのアルゴリズムは、 [`<algorithm>`](algorithm.md) [`<numeric>`](numeric.md) ヘッダーファイルとヘッダーファイルにあります。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [C++ 標準ライブラリリファレンス](cpp-standard-library-reference.md)\
 [C++ 標準ライブラリのスレッドセーフ](thread-safety-in-the-cpp-standard-library.md)

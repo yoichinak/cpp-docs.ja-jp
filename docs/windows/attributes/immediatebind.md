@@ -1,19 +1,20 @@
 ---
+description: '詳細情報: イミディエイト atebind (C++ COM 属性)'
 title: イミディエイトの atebind (C++ COM 属性)
-ms.date: 10/02/2018
+ms.date: 04/15/2021
 f1_keywords:
 - vc-attr.immediatebind
 helpviewer_keywords:
 - immediatebind attribute
 ms.assetid: 186d40e6-9166-4d0c-9853-4e7e4d25226f
-ms.openlocfilehash: d5241a6972ea0444a980e3e868c44e7e0c15dc64
-ms.sourcegitcommit: ec6dd97ef3d10b44e0fedaa8e53f41696f49ac7b
+ms.openlocfilehash: b4bd8ddd61de7bc249fef2e6b0a140f4ee5cff95
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88833050"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539756"
 ---
-# <a name="immediatebind"></a>immediatebind
+# `immediatebind`
 
 データバインドオブジェクトのプロパティに対するすべての変更が、すぐにデータベースに通知されることを示します。
 
@@ -25,27 +26,27 @@ ms.locfileid: "88833050"
 
 ## <a name="remarks"></a>解説
 
-直 **ちに atebind** C++ 属性には、イミディエイトの [atebind](/windows/win32/Midl/immediatebind) MIDL 属性と同じ機能があります。
+C++ 属性には、 **`immediatebind`** MIDL 属性と同じ機能があり [`immediatebind`](/windows/win32/Midl/immediatebind) ます。
 
 ## <a name="example"></a>例
 
-直**ちに atebind**を使用する方法の例については、「[バインド](bindable.md)可能」を参照してください。
+直 [`bindable`](bindable.md) **ちに atebind** を使用する方法の例については、「」を参照してください。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 | 属性コンテキスト | 値 |
 |-|-|
 |**適用対象**|インターフェイス メソッド|
-|**Repeatable**|いいえ|
+|**反復可能**|No|
 |**必須属性**|なし|
 |**無効な属性**|なし|
 
 詳細については、「 [属性コンテキスト](cpp-attributes-com-net.md#contexts)」を参照してください。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [IDL 属性](idl-attributes.md)<br/>
 [メソッド属性](method-attributes.md)<br/>
-[defaultbind](defaultbind.md)<br/>
-[displaybind](displaybind.md)<br/>
-[requestedit](requestedit.md)
+[`defaultbind`](defaultbind.md)<br/>
+[`displaybind`](displaybind.md)<br/>
+[`requestedit`](requestedit.md)

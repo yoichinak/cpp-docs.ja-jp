@@ -36,12 +36,12 @@ helpviewer_keywords:
 - file pointers [C++], moving
 - seek file pointers
 ms.assetid: aba8a768-d40e-48c3-b38e-473dbd782f93
-ms.openlocfilehash: 5ac536a0f1388f8d664aa6721900256da368d652
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 69a495eda02faa06bd173483d0b292dea11abc13
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97299970"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539729"
 ---
 # <a name="_lseek-_lseeki64"></a>_lseek、_lseeki64
 
@@ -79,11 +79,11 @@ __int64 _lseeki64(
 
 エラー コードの詳細については、「[_doserrno、errno、_sys_errlist、および _sys_nerr](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)」を参照してください。
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 **_Lseek** 関数は、 *fd* に関連付けられたファイルポインターを、*原点* から *オフセット* バイトの新しい場所に移動します。 ファイルの次の操作は、新しい場所で行われます。 *origin* 引数は、Stdio.h で定義されている、次の定数のいずれかである必要があります。
 
-|*配信元* の値||
+|*配信元* の値| Description |
 |-|-|
 | **SEEK_SET** | ファイルの先頭。 |
 | **SEEK_CUR** | ファイル ポインターの現在の位置。 |

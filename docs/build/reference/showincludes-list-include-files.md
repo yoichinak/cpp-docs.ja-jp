@@ -1,6 +1,7 @@
 ---
+description: 詳細情報:/showIncludes (インクルードファイルの一覧)
 title: /showIncludes (インクルード ファイル一覧)
-ms.date: 11/04/2016
+ms.date: 04/15/2021
 f1_keywords:
 - VC.Project.VCCLWCECompilerTool.ShowIncludes
 - VC.Project.VCCLCompilerTool.ShowIncludes
@@ -11,52 +12,47 @@ helpviewer_keywords:
 - include files, displaying in compilation
 - -showIncludes compiler option [C++]
 - showIncludes compiler option [C++]
-ms.assetid: 0b74b052-f594-45a6-a7c7-09e1a319547d
-ms.openlocfilehash: d454054c132976a899fcc4a56a63be427e79beec
-ms.sourcegitcommit: 0ab61bc3d2b6cfbd52a16c6ab2b97a8ea1864f12
+ms.openlocfilehash: 3c960b7b88b9d96cde54f535bffbaf67dd3f67b6
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62318161"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539250"
 ---
-# <a name="showincludes-list-include-files"></a>/showIncludes (インクルード ファイル一覧)
+# <a name="showincludes-list-include-files"></a>`/showIncludes` (インクルードファイルの一覧表示)
 
-コンパイラでインクルード ファイルのリストを出力します。 入れ子になった含めるファイルも表示されている (に含まれるファイルを含むファイルから)。
+コンパイラがインクルードファイルのリストを出力するようにします。 オプションには、入れ子になったインクルードファイル、つまり、含めるファイルに含まれるファイルも表示されます。
 
 ## <a name="syntax"></a>構文
 
-```
-/showIncludes
-```
+> **`/showIncludes`**
 
-## <a name="remarks"></a>Remarks
+## <a name="remarks"></a>解説
 
-インクルード ファイルがコンパイル時に発生したときに、メッセージは、出力をなどです。
+コンパイル中にコンパイラがインクルードファイルを取得すると、次の例のようにメッセージが出力されます。
 
-```
+```cmd
 Note: including file: d:\MyDir\include\stdio.h
 ```
 
-入れ子になった含めるなどのファイルは、インデントは、入れ子のレベルごとに 1 つの領域で示されます。
+入れ子になったインクルードファイルは、次の例のように、入れ子のレベルごとに1つのスペースで、インデントによって示されます。
 
-```
+```cmd
 Note: including file: d:\temp\1.h
 Note: including file:  d:\temp\2.h
 ```
 
-この場合、`2.h`内から含まれていました`1.h`、そのため、インデントします。
+この場合、 *`2.h`* が内から追加され、 *`1.h`* インデントが発生します。
 
-**/ShowIncludes**オプションを生成する`stderr`ではなく、`stdout`します。
+**`/showIncludes`** オプションは `stderr` 、ではなく、に出力され `stdout` ます。
 
-### <a name="to-set-this-compiler-option-in-the-visual-studio-development-environment"></a>Visual Studio 開発環境において、このコンパイラ オプションを設定する方法
+### <a name="to-set-this-compiler-option-in-the-visual-studio-development-environment"></a>Visual Studio 開発環境でこのコンパイラ オプションを設定するには
 
-1. プロジェクトの **[プロパティ ページ]** ダイアログ ボックスを開きます。 詳細については、次を参照してください。 [Visual Studio での設定の C++ コンパイラとビルド プロパティ](../working-with-project-properties.md)します。
+1. プロジェクトの **[プロパティ ページ]** ダイアログ ボックスを開きます。 詳細については、[Visual Studio での C++ コンパイラとビルド プロパティの設定](../working-with-project-properties.md)に関するページを参照してください。
 
-1. **[C/C++]** フォルダーをクリックします。
+1. [**構成プロパティ**] [  >  **C/c + +**]  >  **[詳細設定**] プロパティページを選択します。
 
-1. をクリックして、**詳細**プロパティ ページ。
-
-1. 変更、 **インクルード ファイルの**プロパティ。
+1. **Show インクルード** プロパティを変更します。
 
 ### <a name="to-set-this-compiler-option-programmatically"></a>このコンパイラ オプションをコードから設定するには
 
@@ -64,5 +60,5 @@ Note: including file:  d:\temp\2.h
 
 ## <a name="see-also"></a>関連項目
 
-[MSVC コンパイラ オプション](compiler-options.md)<br/>
-[MSVC コンパイラ コマンド ラインの構文](compiler-command-line-syntax.md)
+[MSVC コンパイラオプション](compiler-options.md)\
+[MSVC コンパイラのコマンドライン構文](compiler-command-line-syntax.md)

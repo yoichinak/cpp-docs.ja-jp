@@ -45,14 +45,14 @@ helpviewer_keywords:
 - stprintf_p_l function
 - formatted text [C++]
 - _stprintf_p_l function
-ms.openlocfilehash: 356aa4c5266323e989ffbc5b651af4c77431eecd
-ms.sourcegitcommit: b04b39940b0c1e265f80fc1951278fdb05a1b30a
+ms.openlocfilehash: 2f0b6dad129a8f3f2f91bf1244c77ae5691a679e
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102621647"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539270"
 ---
-# <a name="_sprintf_p-_sprintf_p_l-_swprintf_p-_swprintf_p_l"></a>_sprintf_p、_sprintf_p_l、_swprintf_p、_swprintf_p_l
+# <a name="_sprintf_p-_sprintf_p_l-_swprintf_p-_swprintf_p_l"></a>`_sprintf_p`, `_sprintf_p_l`, `_swprintf_p`, `_swprintf_p_l`
 
 パラメーターが書式文字列で使用される順序を指定できる文字列に、書式付きデータを書き込みます。
 
@@ -89,19 +89,19 @@ int _swprintf_p_l(
 
 ### <a name="parameters"></a>パラメーター
 
-*格納*<br/>
+*`buffer`*<br/>
 出力の格納場所。
 
-*sizeOfBuffer*<br/>
+*`sizeOfBuffer`*<br/>
 格納する最大文字数。
 
-*format*<br/>
+*`format`*<br/>
 書式指定文字列。
 
-*argument_list*<br/>
+*`argument_list`*<br/>
 書式指定文字列への省略可能な引数。
 
-*locale*<br/>
+*`locale`*<br/>
 使用するロケール。
 
 詳細については、[書式の指定](../../c-runtime-library/format-specification-syntax-printf-and-wprintf-functions.md)に関する記事をご覧ください。
@@ -112,32 +112,32 @@ int _swprintf_p_l(
 
 ## <a name="remarks"></a>注釈
 
-**_Sprintf_p** 関数は、一連の文字と値の書式を設定し、*バッファー* に格納します。 *Argument_list* 内の各引数 (存在する場合) は、対応する形式仕様に従って変換および出力さ *れます。* *Format* 引数は、 [printf 関数と wprintf 関数の書式指定構文](../../c-runtime-library/format-specification-syntax-printf-and-wprintf-functions.md)を使用します。 最後に書き込まれる文字の後に NULL 文字が追加されます。 重なり合う文字列間でコピーした場合の動作は未定義です。 **_Sprintf_p** と **sprintf_s** の違いは、 **_sprintf_p** が位置指定パラメーターをサポートしていることです。これにより、書式設定文字列で引数が使用される順序を指定できます。 詳細については、「[printf_p の位置指定パラメーター](../../c-runtime-library/printf-p-positional-parameters.md)」を参照してください。
+関数は、 **`_sprintf_p`** 一連の文字と値の書式を設定し、に格納し *`buffer`* ます。 内の各引数 *`argument_list`* (存在する場合) は、の対応する書式指定に従って変換され、出力され *`format`* ます。 *Format* 引数は、 [ `printf` `wprintf` 関数と関数の書式指定構文](../../c-runtime-library/format-specification-syntax-printf-and-wprintf-functions.md)を使用します。 最後に書き込まれる文字の後に NULL 文字が追加されます。 重なり合う文字列間でコピーした場合の動作は未定義です。 との違いは、で **`_sprintf_p`** **`sprintf_s`** は位置指定パラメーターをサポートしています **`_sprintf_p`** 。これにより、書式指定文字列で引数を使用する順序を指定できます。 詳細については、「 [ `printf_p` 位置指定パラメーター](../../c-runtime-library/printf-p-positional-parameters.md)」を参照してください。
 
-**_swprintf_p** は **_sprintf_p** のワイド文字バージョンです。 **_swprintf_p** するポインター引数はワイド文字列です。 **_Swprintf_p** でのエンコードエラーの検出は、 **_sprintf_p** とは異なる場合があります。 **_swprintf_p** と **fwprintf_p** は同じように動作しますが、 **_Swprintf_p** では、型 **ファイル** の出力先ではなく文字列に出力が書き込まれる点が異なります。また、 **_swprintf_p** では、書き込む最大文字数を指定するために *count* パラメーターが必要です。 **_L** サフィックスを持つこれらの関数のバージョンは、現在のスレッドロケールの代わりに渡されたロケールパラメーターを使用する点を除いて同じです。
+**`_swprintf_p`** はのワイド文字バージョンであり、 **`_sprintf_p`** へのポインター引数 **`_swprintf_p`** はワイド文字列です。 でのエンコードエラーの検出 **`_swprintf_p`** は、の場合とは異なる場合があり **`_sprintf_p`** ます。 **`_swprintf_p`** と **`fwprintf_p`** の動作は、が **`_swprintf_p`** 型の出力先ではなく文字列に出力を書き込む点 **`FILE`** と、 **`_swprintf_p`** *`count`* 書き込む最大文字数を指定するパラメーターが必要である点を除いて同じです。 これらの関数のうちサフィックスが付けられたバージョン **`_l`** は、現在のスレッドロケールの代わりに渡されたロケールパラメーターを使用する点を除いて同じです。
 
-**_sprintf_p** は、 *バッファー* に格納されているバイト数を返します。終端の null 文字はカウントされません。 **_swprintf_p** は、 *バッファー* に格納されているワイド文字数を返します。終端の null ワイド文字はカウントされません。 *バッファー* または *形式* が null ポインターの場合、または書式指定文字列に無効な書式指定文字が含まれている場合は、「[パラメーターの検証](../../c-runtime-library/parameter-validation.md)」で説明されているように、無効なパラメーターハンドラーが呼び出されます。 実行の継続が許可された場合、これらの関数は-1 を返し、 **errno** を **EINVAL** に設定します。
+**`_sprintf_p`** は、に格納されているバイト数を返し *`buffer`* ます。終端の null 文字は含まれません。 **`_swprintf_p`** は、に格納されているワイド文字数を返し *`buffer`* ます。終端の null ワイド文字は含まれません。 またはが null ポインターの場合、または *`buffer`* *`format`* 書式指定文字列に無効な書式指定文字が含まれている場合は、「 [パラメーターの検証](../../c-runtime-library/parameter-validation.md)」で説明されているように、無効なパラメーターハンドラーが呼び出されます。 実行の継続が許可された場合、これらの関数は-1 を返し、 **`errno`** をに設定 **`EINVAL`** します。
 
 > [!IMPORTANT]
 > Windows 10 バージョン 2004 (ビルド 19041) 以降では、 `printf` 関数ファミリは、丸め処理のために IEEE 754 の規則に従って、正確に表現可能な浮動小数点数を出力します。 以前のバージョンの Windows では、"5" で終わる厳密に表現可能な浮動小数点数は常に切り上げられます。 IEEE 754 では、最も近い偶数 ("銀行型丸め" とも呼ばれます) に丸める必要があることが示されています。 たとえば、との `printf("%1.0f", 1.5)` 両方 `printf("%1.0f", 2.5)` が2に丸められる必要があります。 以前は、1.5 は2に丸められ、2.5 は3に丸められていました。 この変更は、正確に表現できる数値にのみ影響します。 たとえば、2.35 (メモリで表される場合は2.35000000000000008 に近い) は、2.4 に切り上げられます。 これらの関数によって実行される丸め処理は、によって設定された浮動小数点丸めモードにも従い [`fesetround`](fegetround-fesetround2.md) ます。 以前は、常に丸め処理を選択していま `FE_TONEAREST` した。 この変更は、Visual Studio 2019 バージョン16.2 以降を使用してビルドされたプログラムにのみ影響します。 従来の浮動小数点丸め動作を使用するには、 [' legacy_stdio_float_rounding. .obj '](../link-options.md)にリンクします。
 
 ### <a name="generic-text-routine-mappings"></a>汎用テキスト ルーチンのマップ
 
-|TCHAR.H のルーチン|_UNICODE および _MBCS が未定義の場合|_MBCS が定義されている場合|_UNICODE が定義されている場合|
+|`TCHAR.H` ルーチン|`_UNICODE` & `_MBCS` 未定義|`_MBCS` れ|`_UNICODE` れ|
 |---------------------|------------------------------------|--------------------|-----------------------|
-|**_stprintf_p**|**_sprintf_p**|**_sprintf_p**|**_swprintf_p**|
-|**_stprintf_p_l**|**_sprintf_p_l**|**_sprintf_p_l**|**_swprintf_p_l**|
+|**`_stprintf_p`**|**`_sprintf_p`**|**`_sprintf_p`**|**`_swprintf_p`**|
+|**`_stprintf_p_l`**|**`_sprintf_p_l`**|**`_sprintf_p_l`**|**`_swprintf_p_l`**|
 
 ## <a name="requirements"></a>必要条件
 
 |ルーチンによって返される値|必須ヘッダー|
 |-------------|---------------------|
-|**_sprintf_p**、 **_sprintf_p_l**|\<stdio.h>|
-|**_swprintf_p**、 **_swprintf_p_l**|\<stdio.h> または \<wchar.h>|
+|**`_sprintf_p`**, **`_sprintf_p_l`**|`<stdio.h>`|
+|**`_swprintf_p`**, **`_swprintf_p_l`**|`<stdio.h>` または `<wchar.h>`|
 
 互換性の詳細については、「[互換性](../../c-runtime-library/compatibility.md)」を参照してください。
 
-## <a name="example-use-_sprintf_p-to-format-data"></a>例: _sprintf_p を使用したデータの書式設定
+## <a name="example-use-_sprintf_p-to-format-data"></a>例: `_sprintf_p` を使用してデータを書式設定する
 
 ```C
 // crt_sprintf_p.c
@@ -212,16 +212,16 @@ Wrote 24 characters
 Wrote -1 characters
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [ストリーム入出力](../../c-runtime-library/stream-i-o.md)<br/>
-[_fprintf_p、_fprintf_p_l、_fwprintf_p、_fwprintf_p_l](fprintf-p-fprintf-p-l-fwprintf-p-fwprintf-p-l.md)<br/>
-[fprintf、_fprintf_l、fwprintf、_fwprintf_l](fprintf-fprintf-l-fwprintf-fwprintf-l.md)<br/>
-[_printf_p、_printf_p_l、_wprintf_p、_wprintf_p_l](printf-p-printf-p-l-wprintf-p-wprintf-p-l.md)<br/>
-[printf、_printf_l、wprintf、_wprintf_l](printf-printf-l-wprintf-wprintf-l.md)<br/>
-[sprintf、_sprintf_l、swprintf、_swprintf_l、__swprintf_l](sprintf-sprintf-l-swprintf-swprintf-l-swprintf-l.md)<br/>
-[scanf、_scanf_l、wscanf、_wscanf_l](scanf-scanf-l-wscanf-wscanf-l.md)<br/>
-[sscanf、_sscanf_l、swscanf、_swscanf_l](sscanf-sscanf-l-swscanf-swscanf-l.md)<br/>
-[sscanf_s、_sscanf_s_l、swscanf_s、_swscanf_s_l](sscanf-s-sscanf-s-l-swscanf-s-swscanf-s-l.md)<br/>
-[vprintf 関数](../../c-runtime-library/vprintf-functions.md)<br/>
-[位置指定パラメーターの printf_p](../../c-runtime-library/printf-p-positional-parameters.md)<br/>
+[`_fprintf_p`, `_fprintf_p_l`, `_fwprintf_p`, `_fwprintf_p_l`](fprintf-p-fprintf-p-l-fwprintf-p-fwprintf-p-l.md)<br/>
+[`fprintf`, `_fprintf_l`, `fwprintf`, `_fwprintf_l`](fprintf-fprintf-l-fwprintf-fwprintf-l.md)<br/>
+[`_printf_p`, `_printf_p_l`, `_wprintf_p`, `_wprintf_p_l`](printf-p-printf-p-l-wprintf-p-wprintf-p-l.md)<br/>
+[`printf`, `_printf_l`, `wprintf`, `_wprintf_l`](printf-printf-l-wprintf-wprintf-l.md)<br/>
+[`sprintf`, `_sprintf_l`, `swprintf`, `_swprintf_l`, `__swprintf_l`](sprintf-sprintf-l-swprintf-swprintf-l-swprintf-l.md)<br/>
+[`scanf`, `_scanf_l`, `wscanf`, `_wscanf_l`](scanf-scanf-l-wscanf-wscanf-l.md)<br/>
+[`sscanf`, `_sscanf_l`, `swscanf`, `_swscanf_l`](sscanf-sscanf-l-swscanf-swscanf-l.md)<br/>
+[`sscanf_s`, `_sscanf_s_l`, `swscanf_s`, `_swscanf_s_l`](sscanf-s-sscanf-s-l-swscanf-s-swscanf-s-l.md)<br/>
+[`vprintf` 関数](../../c-runtime-library/vprintf-functions.md)<br/>
+[`printf_p` 位置指定パラメーター](../../c-runtime-library/printf-p-positional-parameters.md)<br/>

@@ -39,16 +39,16 @@ helpviewer_keywords:
 - Unicode [C++], writing files
 - files [C++], opening
 - Unicode [C++], files
-ms.openlocfilehash: a034eda7ad45be30decccee50a104c0565907c41
-ms.sourcegitcommit: c0c9cdae79f19655e809a4979227c51bb19cff63
+ms.openlocfilehash: e3526df036711d7c6319dfa582dcefcf7b7d0818
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102236538"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539791"
 ---
 # <a name="fopen_s-_wfopen_s"></a>`fopen_s`, `_wfopen_s`
 
-ファイルを開きます。 これらのバージョンのでは [`fopen, _wfopen`](fopen-wfopen.md) 、「CRT の [セキュリティ機能](../../c-runtime-library/security-features-in-the-crt.md)」の説明にあるとおり、セキュリティが強化されています。
+ファイルを開きます。 これらのバージョン[の `fopen` `_wfopen` では、「](fopen-wfopen.md) [CRT のセキュリティ機能](../../c-runtime-library/security-features-in-the-crt.md)」の説明にあるとおり、セキュリティが強化されています。
 
 ## <a name="syntax"></a>構文
 
@@ -78,7 +78,7 @@ errno_t _wfopen_s(
 
 ## <a name="return-value"></a>戻り値
 
-正常終了した場合は 0 を返します。失敗した場合はエラー コードを返します。 これらのエラーコードの詳細については、「」を参照してください [`errno, _doserrno, _sys_errlist, and _sys_nerr`](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md) 。
+正常終了した場合は 0 を返します。失敗した場合はエラー コードを返します。 これらのエラーコードの詳細については、「」、「」、 [ `errno` `_doserrno` `_sys_errlist` および `_sys_nerr` ](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)「」を参照してください。
 
 ### <a name="error-conditions"></a>エラー条件
 
@@ -88,9 +88,9 @@ errno_t _wfopen_s(
 |any|**`NULL`**|any|**`EINVAL`**|変更なし|
 |any|any|**`NULL`**|**`EINVAL`**|変更なし|
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
-およびによって開かれたファイルは **`fopen_s`** **`_wfopen_s`** 共有できません。 ファイルを共有可能にする必要がある場合は、 [`_fsopen, _wfsopen`](fsopen-wfsopen.md) 適切な共有モード定数 (たとえば、 **`_SH_DENYNO`** 読み取り/書き込み共有) でを使用します。
+およびによって開かれたファイルは **`fopen_s`** **`_wfopen_s`** 共有できません。 ファイルを共有可能にする必要がある場合は、適切な共有モード定数 (たとえば、読み取り/書き込み共有) で [ `_fsopen` を `_wfsopen`](fsopen-wfsopen.md)使用し **`_SH_DENYNO`** ます。
 
 関数は、 **`fopen_s`** *filename* によって指定されたファイルを開きます。 **`_wfopen_s`** はのワイド文字バージョンです **`fopen_s`** 。の引数は **`_wfopen_s`** ワイド文字列です。 **`_wfopen_s`****`fopen_s`** それ以外の場合は、との動作は同じです。
 
@@ -98,7 +98,7 @@ errno_t _wfopen_s(
 
 これらの関数では、パラメーターの検証が行われます。 *`pFile`*、 *`filename`* 、または *`mode`* が null ポインターの場合、「[パラメーターの検証](../../c-runtime-library/parameter-validation.md)」で説明されているように、これらの関数は無効なパラメーター例外を生成します。
 
-ファイルに対して他の操作を実行する前に、必ず戻り値をチェックして関数が成功したかどうかを確認してください。 エラーが発生した場合は、エラーコードが返され、グローバル変数 **`errno`** が設定されます。 詳細については、「[`errno, _doserrno, _sys_errlist, and _sys_nerr`](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)」を参照してください。
+ファイルに対して他の操作を実行する前に、必ず戻り値をチェックして関数が成功したかどうかを確認してください。 エラーが発生した場合は、エラーコードが返され、グローバル変数 **`errno`** が設定されます。 詳細については、「」、「」、 [ `errno` `_doserrno` `_sys_errlist` および `_sys_nerr` ](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)「」を参照してください。
 
 既定では、この関数のグローバル状態はアプリケーションにスコープが設定されています。 これを変更するには、「 [CRT でのグローバル状態](../global-state.md)」を参照してください。
 
@@ -137,7 +137,7 @@ Unicode モードで書き込むように開かれたファイルには、自動
 
 文字列は、次のように、 *`mode`* ファイルに要求されるアクセスの種類を指定します。
 
-|*`mode`*|アクセス|
+|*`mode`*|Access|
 |-|-|
 | **`"r"`** | 読み取り用に開きます。 ファイルが存在しない場合、または見つからない場合、 **`fopen_s`** 呼び出しは失敗します。 |
 | **`"w"`** | 書き込み用に空のファイルを開きます。 指定したファイルが既に存在すると、そのファイルの内容は破棄されます。 |
@@ -148,7 +148,7 @@ Unicode モードで書き込むように開かれたファイルには、自動
 
 アクセスの種類またはを使用してファイルを開くと **`"a"`** **`"a+"`** 、すべての書き込み操作はファイルの末尾で行われます。 ファイルポインターはまたはを使用して移動できます [`fseek`](fseek-fseeki64.md) [`rewind`](rewind.md) が、既存のデータを上書きできないように、書き込み操作が実行される前に常にファイルの末尾に戻されます。
 
-モードでは、 **`"a"`** ファイルに追加する前に EOF マーカーは削除されません。 追加が行われた後、MS-DOS コマンドは、 `TYPE` ファイルに追加されたデータではなく、元の EOF マーカーまでのデータのみを表示します。 **`"a+"`** モードでは、ファイルに追加する前に EOF マーカーが削除されます。 追加後、MS-DOS `TYPE` コマンドはファイル内のすべてのデータを表示します。 **`"a+"`** EOF マーカーで終了するストリームファイルに追加するには、モードが必要です `CTRL+Z` 。
+モードでは、 **`"a"`** ファイルに追加する前に EOF マーカーは削除されません。 追加が行われた後、MS-DOS コマンドは、 `TYPE` ファイルに追加されたデータではなく、元の EOF マーカーまでのデータのみを表示します。 **`"a+"`** モードでは、ファイルに追加する前に EOF マーカーが削除されます。 追加後、MS-DOS `TYPE` コマンドはファイル内のすべてのデータを表示します。 **`"a+"`** **CTRL** + **Z** EOF マーカーで終了するストリームファイルに追加するには、モードが必要です。
 
 **`"r+"`**、 **`"w+"`** 、またはのいずれかのアクセスの種類を指定すると **`"a+"`** 、読み取りと書き込みの両方を行うことができます。 (ファイルは "更新" のために開かれていると言います)。ただし、読み取りから書き込みに切り替えると、入力操作は EOF マーカー経由で行われる必要があります。 EOF マーカーがない場合は、ファイルポジショニング関数に介在する呼び出しを使用する必要があります。 ファイル配置関数は、、 **`fsetpos`** 、 [`fseek`](fseek-fseeki64.md) および [`rewind`](rewind.md) です。 書き込みから読み取りに切り替えると、 **`fflush`** またはファイル配置関数に対して介在する呼び出しを使用する必要があります。
 
@@ -161,7 +161,7 @@ C11 以降で **`"x"`** は、をまたはに追加し **`"w"`** て、ファイ
 | **`t`** | ファイルをテキスト (変換) モードで開きます。 |
 | **`b`** | バイナリ (無変換) モードで開く復帰文字と改行文字を含む翻訳は抑制されます。 |
 
-テキスト (変換) モードで `CTRL+Z` は、は入力時にファイルの終端文字として解釈されます。 で読み取り/書き込み用に開かれたファイルでは **`"a+"`** 、 **`fopen_s`** ファイルの末尾にがあるかどうかを確認 `CTRL+Z` し、可能な場合は削除します。 これは、とを使用して、 [`fseek`](fseek-fseeki64.md) **`ftell`** で終わるファイル内を移動すると `CTRL+Z` 、 [`fseek`](fseek-fseeki64.md) ファイルの末尾付近でが正しく動作しなくなる可能性があるためです。
+テキスト (変換) モードでは、 **CTRL** + **Z** は入力時にファイルの終端文字として解釈されます。 で読み取り/書き込み用に開かれたファイルでは **`"a+"`** 、が **`fopen_s`** ファイルの末尾に **CTRL** Z があるかどうかを確認 + し、削除できる場合は削除します。 この処理が行われる理由は、 [`fseek`](fseek-fseeki64.md) **`ftell`** **CTRL** Z で終わるファイル内でを使用してを移動すると + 、 [`fseek`](fseek-fseeki64.md) ファイルの末尾付近でが正しく動作しなくなる可能性があるためです。
 
 また、テキストモードでは、キャリッジリターンとラインフィードの組み合わせは入力時に1つの改行に変換され、ラインフィード文字は出力時に復帰と改行の組み合わせに変換されます。 Unicode のストリーム入出力関数が既定のテキスト モードで動作すると、入力元または出力先のストリームはマルチバイト文字のシーケンスと仮定されます。 Unicode ストリーム入力関数は、マルチバイト文字をワイド文字に変換します (関数を呼び出した場合と同様 **`mbtowc`** )。 同様の理由で、Unicode ストリーム出力関数は、関数の呼び出しの場合と同様に、ワイド文字をマルチバイト文字に変換し **`wctomb`** ます。
 
@@ -204,7 +204,7 @@ Unicode およびマルチバイトのストリーム入出力におけるテキ
 
 モードを使用している場合は、 **`rb`** メモリにマップされた Win32 ファイルが、コードを移植する必要がない場合や、ファイルの大部分を読み取ることが予想される場合、またはネットワークパフォーマンスが気にならない場合にもオプションとなることがあります。
 
-## <a name="requirements"></a>必要条件
+## <a name="requirements"></a>要件
 
 |機能|必須ヘッダー|
 |--------------|---------------------|
@@ -286,10 +286,10 @@ Number of files closed by _fcloseall: 1
 ## <a name="see-also"></a>関連項目
 
 [ストリーム入出力](../../c-runtime-library/stream-i-o.md)\
-[`fclose, _fcloseall`](fclose-fcloseall.md)\
-[`_fdopen, _wfdopen`](fdopen-wfdopen.md)\
+[`fclose`, `_fcloseall`](fclose-fcloseall.md)\
+[`_fdopen`, `_wfdopen`](fdopen-wfdopen.md)\
 [`ferror`](ferror.md)\
 [`_fileno`](fileno.md)\
-[`freopen, _wfreopen`](freopen-wfreopen.md)\
-[`_open, _wopen`](open-wopen.md)\
+[`freopen`, `_wfreopen`](freopen-wfreopen.md)\
+[`_open`, `_wopen`](open-wopen.md)\
 [`_setmode`](setmode.md)

@@ -46,19 +46,19 @@ helpviewer_keywords:
 - tcscpy_s function
 - wcscpy_s function
 ms.assetid: 611326f3-7929-4a5d-a465-a4683af3b053
-ms.openlocfilehash: 737d5f2a8536bee57ff7ad568908a1dd81a2bf2c
-ms.sourcegitcommit: c0c9cdae79f19655e809a4979227c51bb19cff63
+ms.openlocfilehash: 3cbfa2b2f8450adf07b2040fb2be0932377c9e37
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102236590"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539563"
 ---
-# <a name="strcpy_s-wcscpy_s-_mbscpy_s-_mbscpy_s_l"></a>strcpy_s、wcscpy_s、_mbscpy_s、_mbscpy_s_l
+# <a name="strcpy_s-wcscpy_s-_mbscpy_s-_mbscpy_s_l"></a>`strcpy_s`、 `wcscpy_` 、、 `_mbscpy_s``_mbscpy_s_l`
 
-文字列をコピーします。 これらのバージョンの [strcpy、wcscpy、_mbscpy](strcpy-wcscpy-mbscpy.md) は、「[CRT のセキュリティ機能](../../c-runtime-library/security-features-in-the-crt.md)」の説明にあるとおり、セキュリティが強化されました。
+文字列をコピーします。 これらのバージョン[ `strcpy` `wcscpy` `_mbscpy` のでは](strcpy-wcscpy-mbscpy.md)、「 [CRT のセキュリティ機能](../../c-runtime-library/security-features-in-the-crt.md)」の説明にあるとおり、セキュリティが強化されています。
 
 > [!IMPORTANT]
-> **_mbscpy_s** と **_mbscpy_s_l** は、Windows ランタイムで実行されるアプリケーションでは使用できません。 詳細については、「[ユニバーサル Windows プラットフォーム アプリでサポートされていない CRT 関数](../../cppcx/crt-functions-not-supported-in-universal-windows-platform-apps.md)」を参照してください。
+> **`_mbscpy_s`** およびは **`_mbscpy_s_l`** 、Windows ランタイムで実行されるアプリケーションでは使用できません。 詳細については、「[ユニバーサル Windows プラットフォーム アプリでサポートされていない CRT 関数](../../cppcx/crt-functions-not-supported-in-universal-windows-platform-apps.md)」を参照してください。
 
 ## <a name="syntax"></a>構文
 
@@ -113,16 +113,16 @@ errno_t _mbscpy_s_l(
 
 ### <a name="parameters"></a>パラメーター
 
-*先*<br/>
+*`dest`*<br/>
 追加先の文字列バッファーの場所。
 
-*dest_size*<br/>
-ナロー関数とマルチバイト関数の場合は、ターゲット文字列バッファーのサイズ **`char`** (単位)、 **`wchar_t`** ワイド関数の場合は単位です。 この値は、0より大きく、 **RSIZE_MAX** 以上である必要があります。 このサイズのアカウントで、文字列の後に続くが使用されていることを確認し `NULL` ます。
+*`dest_size`*<br/>
+ナロー関数とマルチバイト関数の場合は、ターゲット文字列バッファーのサイズ **`char`** (単位)、 **`wchar_t`** ワイド関数の場合は単位です。 この値は0より大きく、を超えることはできません **`RSIZE_MAX`** 。 このサイズのアカウントで、文字列の後に続くが使用されていることを確認し `NULL` ます。
 
-*src*<br/>
+*`src`*<br/>
 null で終わる元の文字列バッファー。
 
-*locale*<br/>
+*`locale`*<br/>
 使用するロケール。
 
 ## <a name="return-value"></a>戻り値
@@ -131,41 +131,41 @@ null で終わる元の文字列バッファー。
 
 ### <a name="error-conditions"></a>エラー条件
 
-|*先*|*dest_size*|*src*|戻り値|*Dest* の内容|
+|*`dest`*|*`dest_size`*|*`src`*|戻り値|の内容 *`dest`*|
 |----------------------|------------------------|-----------------|------------------|----------------------------------|
-|**NULL**|any|any|**EINVAL**|変更されない|
-|any|any|**NULL**|**EINVAL**|*dest*[0] が0に設定される|
-|any|0 または小さすぎる|any|**ERANGE**|*dest*[0] が0に設定される|
+|**`NULL`**|any|any|**`EINVAL`**|変更されない|
+|any|any|**`NULL`**|**`EINVAL`**|*`dest[0]`* 0に設定|
+|any|0 または小さすぎる|any|**`ERANGE`**|*`dest[0]`* 0に設定|
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
-**Strcpy_s** 関数は、 *src* のアドレス (終端の null 文字を含む) の内容を *dest* によって指定された場所にコピーします。 コピー先の文字列には、コピー元の文字列とその終端の NULL 文字を保持できるサイズが必要です。 コピー元とコピー先の文字列が重なり合っている場合、 **strcpy_s** の動作は定義されていません。
+関数は、 **`strcpy_s`** 終端の null 文字を含むのアドレスの内容を、 *`src`* で指定した場所にコピーし *`dest`* ます。 コピー先の文字列には、コピー元の文字列とその終端の NULL 文字を保持できるサイズが必要です。 **`strcpy_s`** コピー元とコピー先の文字列が重なり合っている場合、の動作は未定義です。
 
-**wcscpy_s** は **strcpy_s** のワイド文字バージョンで、 **_mbscpy_s** はマルチバイト文字のバージョンです。 **Wcscpy_s** の引数はワイド文字列です。これらの **_mbscpy_s** と **_mbscpy_s_l** はマルチバイト文字列です。 それ以外では、これらの関数の動作は同じです。 **_mbscpy_s_l** は、現在のロケールの代わりに渡されたロケールパラメーターを使用する点を除いて、 **_mbscpy_s** と同じです。 詳細については、「 [Locale](../../c-runtime-library/locale.md)」を参照してください。
+**`wcscpy_s`** はのワイド文字バージョンであり、 **`strcpy_s`** **`_mbscpy_s`** はマルチバイト文字バージョンです。 の引数は **`wcscpy_s`** ワイド文字列で、およびの引数は **`_mbscpy_s`** **`_mbscpy_s_l`** マルチバイト文字列です。 それ以外では、これらの関数の動作は同じです。 **`_mbscpy_s_l`** はと同じですが、 **`_mbscpy_s`** 現在のロケールの代わりに渡されたロケールパラメーターを使用する点が異なります。 詳細については、「[`locale`](../../c-runtime-library/locale.md)」を参照してください。
 
-*Dest* または *src* が null ポインターの場合、または対象の文字列サイズ *dest_size* が小さすぎる場合は、「[パラメーターの検証](../../c-runtime-library/parameter-validation.md)」で説明されているように、無効なパラメーターハンドラーが呼び出されます。 実行の継続が許可された場合、 *dest* または *src* が null ポインターの場合、これらの関数は **einval** を返し、 **errno** を **einval** に設定します。これにより、 **ERANGE** が返され、対象の文字列が小さすぎる場合に **errno** が **ERANGE** に設定されます。
+またはが null ポインターの場合、または *`dest`* *`src`* コピー先の文字列サイズ *`dest_size`* が小さすぎる場合は、「 [パラメーターの検証](../../c-runtime-library/parameter-validation.md)」で説明されているように、無効なパラメーターハンドラーが呼び出されます。 実行の継続が許可された場合、またはが null ポインターの場合、これらの関数はを返し、を **`EINVAL`** **`errno`** に設定 **`EINVAL`** *`dest`* *`src`* し **`ERANGE`** **`errno`** **`ERANGE`** ます。コピー先の文字列が小さすぎる場合、はを返し、をに設定します。
 
 正常に実行されると、コピー先の文字列は常に NULL で終わります。
 
 C++ では、これらの関数をより簡単に使用できます。これはバッファー長を自動的に推論できるテンプレートのオーバーロードにより可能です。その結果、サイズの引数を指定する必要がなくなります。また、セキュリティが万全ではない以前の関数は、セキュリティが強化された新しい関数に自動的に置き換わります。 詳細については、「[セキュリティ保護されたテンプレート オーバーロード](../../c-runtime-library/secure-template-overloads.md)」を参照してください。
 
-これらの関数のデバッグライブラリバージョンは、最初にバッファーを0xFE で埋めます。 この動作を無効にするには、[_CrtSetDebugFillThreshold](crtsetdebugfillthreshold.md) を使用します。
+これらの関数のデバッグライブラリバージョンは、最初にバッファーを0xFE で埋めます。 この動作を無効にするには、を使用し [`_CrtSetDebugFillThreshold`](crtsetdebugfillthreshold.md) ます。
 
 既定では、この関数のグローバル状態はアプリケーションにスコープが設定されています。 これを変更するには、「 [CRT でのグローバル状態](../global-state.md)」を参照してください。
 
 ### <a name="generic-text-routine-mappings"></a>汎用テキスト ルーチンのマップ
 
-|TCHAR.H のルーチン|_UNICODE および _MBCS が未定義の場合|_MBCS が定義されている場合|_UNICODE が定義されている場合|
+|`TCHAR.H` ルーチン|`_UNICODE` & `_MBCS` 未定義|`_MBCS` れ|`_UNICODE` れ|
 |---------------------|------------------------------------|--------------------|-----------------------|
-|**_tcscpy_s**|**strcpy_s**|**_mbscpy_s**|**wcscpy_s**|
+|**`_tcscpy_s`**|**`strcpy_s`**|**`_mbscpy_s`**|**`wcscpy_s`**|
 
 ## <a name="requirements"></a>必要条件
 
 |ルーチンによって返される値|必須ヘッダー|
 |-------------|---------------------|
-|**strcpy_s**|\<string.h>|
-|**wcscpy_s**|\<string.h> または \<wchar.h>|
-|**_mbscpy_s**|\<mbstring.h>|
+|**`strcpy_s`**|`<string.h>`|
+|**`wcscpy_s`**|`<string.h>` または `<wchar.h>`|
+|**`_mbscpy_s`**|`<mbstring.h>`|
 
 これらの関数は、Microsoft 固有の関数です。 互換性の詳細については、「[互換性](../../c-runtime-library/compatibility.md)」を参照してください。
 
@@ -232,14 +232,14 @@ int main(void)
 stringBuffer = Hello world from wcscpy_s and wcscat_s!
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [文字列操作](../../c-runtime-library/string-manipulation-crt.md) <br/>
-[strcat、wcscat、_mbscat、_mbscat_l](strcat-wcscat-mbscat.md) <br/>
-[strcmp、wcscmp、_mbscmp、_mbscmp_l](strcmp-wcscmp-mbscmp.md) <br/>
-[strncat_s、_strncat_s_l、wcsncat_s、_wcsncat_s_l、_mbsncat_s、_mbsncat_s_l](strncat-s-strncat-s-l-wcsncat-s-wcsncat-s-l-mbsncat-s-mbsncat-s-l.md) <br/>
-[strncmp、wcsncmp、_mbsncmp、_mbsncmp_l](strncmp-wcsncmp-mbsncmp-mbsncmp-l.md) <br/>
-[strncpy_s、_strncpy_s_l、wcsncpy_s、_wcsncpy_s_l、_mbsncpy_s、_mbsncpy_s_l](strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l.md) <br/>
-[_strnicmp、_wcsnicmp、_mbsnicmp、_strnicmp_l、_wcsnicmp_l、_mbsnicmp_l](strnicmp-wcsnicmp-mbsnicmp-strnicmp-l-wcsnicmp-l-mbsnicmp-l.md) <br/>
-[strrchr、wcsrchr、_mbsrchr、_mbsrchr_l](strrchr-wcsrchr-mbsrchr-mbsrchr-l.md) <br/>
-[strspn、wcsspn、_mbsspn、_mbsspn_l](strspn-wcsspn-mbsspn-mbsspn-l.md)<br/>
+[`strcat`, `wcscat`, `_mbscat`, `_mbscat_l`](strcat-wcscat-mbscat.md) <br/>
+[`strcmp`, `wcscmp`, `_mbscmp`, `_mbscmp_l`](strcmp-wcscmp-mbscmp.md) <br/>
+[`strncat_s`, `_strncat_s_l`, `wcsncat_s`, `_wcsncat_s_l`, `_mbsncat_s`, `_mbsncat_s_l`](strncat-s-strncat-s-l-wcsncat-s-wcsncat-s-l-mbsncat-s-mbsncat-s-l.md) <br/>
+[`strncmp`, `wcsncmp`, `_mbsncmp`, `_mbsncmp_l`](strncmp-wcsncmp-mbsncmp-mbsncmp-l.md) <br/>
+[`strncpy_s`, `_strncpy_s_l`, `wcsncpy_s`, `_wcsncpy_s_l`, `_mbsncpy_s`, `_mbsncpy_s_l`](strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l.md) <br/>
+[`_strnicmp`, `_wcsnicmp`, `_mbsnicmp`, `_strnicmp_l`, `_wcsnicmp_l`, `_mbsnicmp_l`](strnicmp-wcsnicmp-mbsnicmp-strnicmp-l-wcsnicmp-l-mbsnicmp-l.md) <br/>
+[`strrchr`, `wcsrchr`, `_mbsrchr`, `_mbsrchr_l`](strrchr-wcsrchr-mbsrchr-mbsrchr-l.md) <br/>
+[`strspn`, `wcsspn`, `_mbsspn`, `_mbsspn_l`](strspn-wcsspn-mbsspn-mbsspn-l.md)<br/>

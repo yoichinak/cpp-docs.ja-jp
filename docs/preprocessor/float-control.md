@@ -1,7 +1,7 @@
 ---
 title: float_control pragma
 description: Float_control ディレクティブの使用法と効果について説明し pragma ます。 Float_control ディレクティブは、実行時の浮動小数点の正確なセマンティクスと例外セマンティクスの状態を制御します。
-ms.date: 01/22/2021
+ms.date: 04/15/2021
 f1_keywords:
 - vc-pragma.float_control
 - float_control_CPP
@@ -10,25 +10,25 @@ helpviewer_keywords:
 - pragma, float_control
 no-loc:
 - pragma
-ms.openlocfilehash: 98695c15424395a9b4e008a5cb1133824e1e7054
-ms.sourcegitcommit: a26a66a3cf479e0e827d549a9b850fad99b108d1
+ms.openlocfilehash: b7a02acf729d04527300454fed6e74e7d06bbfe9
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98712766"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539758"
 ---
-# <a name="float_control-no-locpragma"></a>`float_control` pragma
+# <a name="float_control-pragma"></a>`float_control` pragma
 
 関数の浮動小数点動作を指定します。
 
-## <a name="syntax"></a>構文
+## <a name="syntax"></a>Syntax
 
 > **`#pragma float_control`**\
-> **`#pragma float_control( precise,`** { **`on`** | **`off`** } [ **`, push`** ] **`)`**\
-> **`#pragma float_control( except,`** { **`on`** | **`off`** } [ **`, push`** ] **`)`**\
-> **`#pragma float_control(`** { **`push`** | **`pop`** } **`)`**
+> **`#pragma float_control( precise,`** { **`on`** &vert; **`off`** } [ **`, push`** ] **`)`**\
+> **`#pragma float_control( except,`** { **`on`** &vert; **`off`** } [ **`, push`** ] **`)`**\
+> **`#pragma float_control(`** { **`push`** &vert; **`pop`** } **`)`**
 
-## <a name="options"></a>Options
+## <a name="options"></a>オプション
 
 **`precise`**, **`on`** | **`off`**, **`push`**\
 **`on`** **`off`** 正確な浮動小数点セマンティクスを有効にするかどうかを指定します。 コンパイラオプションの違いについては、「 **`/fp:precise`** 解説」を参照してください。 オプションの **`push`** トークンは、の現在の設定を **`float_control`** 内部コンパイラスタックにプッシュします。
@@ -44,7 +44,7 @@ ms.locfileid: "98712766"
 **`pop`**\
 **`float_control`** 内部コンパイラスタックの一番上から設定を削除し、新しい設定を行い **`float_control`** ます。
 
-## <a name="remarks"></a>解説
+## <a name="remarks"></a>注釈
 
 は、 **`float_control`** pragma コンパイラオプションと同じ動作をしません [`/fp`](../build/reference/fp-specify-floating-point-behavior.md) 。 は、 **`float_control`** pragma 浮動小数点動作の一部のみを制御します。 [`fp_contract`](../preprocessor/fp-contract.md) [`fenv_access`](../preprocessor/fenv-access.md) pragma コンパイラオプションを再作成するには、ディレクティブとディレクティブを組み合わせて使用する必要があり **`/fp`** ます。 次の表は、各コンパイラオプションの同等の設定を示してい pragma ます。
 
@@ -128,7 +128,7 @@ int main( ) {
 Pass
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>こちらもご覧ください
 
 [プラグマディレクティブと `__pragma` `_Pragma` キーワードおよびキーワード](./pragma-directives-and-the-pragma-keyword.md)\
 [`fenv_access` pragma](../preprocessor/fenv-access.md)\
