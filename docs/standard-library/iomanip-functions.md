@@ -27,28 +27,28 @@ helpviewer_keywords:
 - std::setiosflags [C++]
 - std::setprecision [C++]
 - std::setw [C++]
-ms.openlocfilehash: d9ddcea6b524c0413bc1c68c2b75ec910b529d22
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: e42468caa93d6e2e91489a25a35f684044787827
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97323929"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721109"
 ---
-# <a name="ltiomanipgt-functions"></a>&lt;iomanip&gt; 関数
+# <a name="iomanip-functions"></a>`<iomanip>` 関数
 
-[get_money](#iomanip_get_money)\
-[get_time](#iomanip_get_time)\
-[put_money](#iomanip_put_money)\
-[put_time](#iomanip_put_time)\
-[引用符](#quoted)\
-[resetiosflags](#resetiosflags)\
-[setbase](#setbase)\
-[setfill](#setfill)\
-[setiosflags](#setiosflags)\
-[setprecision](#setprecision)\
-[setw](#setw)
+[`get_money`](#iomanip_get_money)\
+[`get_time`](#iomanip_get_time)\
+[`put_money`](#iomanip_put_money)\
+[`put_time`](#iomanip_put_time)\
+[`quoted`](#quoted)\
+[`resetiosflags`](#resetiosflags)\
+[`setbase`](#setbase)\
+[`setfill`](#setfill)\
+[`setiosflags`](#setiosflags)\
+[`setprecision`](#setprecision)\
+[`setw`](#setw)
 
-## <a name="get_money"></a><a name="iomanip_get_money"></a> get_money
+## <a name="get_money"></a><a name="iomanip_get_money"></a> `get_money`
 
 目的の形式を使用して、ストリームから通貨値を抽出し、パラメーターの値を返します。
 
@@ -59,19 +59,19 @@ T7 get_money(Money& amount, bool use_intl);
 
 ### <a name="parameters"></a>パラメーター
 
-*時間*\
+*`amount`*\
 抽出した通貨値。
 
-*use_intl*\
+*`use_intl`*\
 の場合は **`true`** 、国際対応形式を使用します。 既定値は **`false`** です。
 
 ### <a name="remarks"></a>解説
 
-マニピュレーターは、ストリームから抽出されたときに、 `str` `formatted input function` `get` `money_get` `str` *use_intl* を使用して国際形式を示すとして動作するとして動作するオブジェクトを返します。 成功した場合は、抽出された通貨値の *金額* がに格納されます。 その後、マニピュレーターが `str` を返します。
+マニピュレーターは、ストリームから抽出されると、 `str` `formatted input function` `get` `money_get` `str` *`use_intl`* 国際対応形式を示すためにを使用して、に関連付けられているロケールファセットのメンバー関数を呼び出すとして動作するオブジェクトを返します。 成功した場合、呼び出しは抽出された通貨値で格納され *`amount`* ます。 その後、マニピュレーターが `str` を返します。
 
 `Money` は型である **`long double`** か、 `basic_string` と同じ要素および特徴パラメーターを持つのインスタンス化である必要があり `str` ます。
 
-## <a name="get_time"></a><a name="iomanip_get_time"></a> get_time
+## <a name="get_time"></a><a name="iomanip_get_time"></a> `get_time`
 
 目的の形式を使用して、ストリームから時刻値を抽出します。 時間構造体として、パラメーターの値を返します。
 
@@ -82,17 +82,17 @@ T10 put_time(struct tm *time_ptr, const Elem *time_format);
 
 ### <a name="parameters"></a>パラメーター
 
-*time_ptr*\
+*`time_ptr`*\
 時間構造体の形式の時刻。
 
-*time_format*\
+*`time_format`*\
 時刻値を取得するために使用する目的の形式。
 
 ### <a name="remarks"></a>解説
 
 マニピュレーターは、ストリーム `str` から抽出されたときに、時間構造体を示す `tptr` および null で終わる書式文字列の先頭を示す `fmt` を使用して、`str` に関連付けられているロケール ファセット `time_get` のメンバー関数 `get` を呼び出す `formatted input function` として動作するオブジェクトを返します。 成功した場合、この呼び出しによって、抽出された時刻フィールドに関連付けられている値が時間構造体に格納されます。 その後、マニピュレーターが `str` を返します。
 
-## <a name="put_money"></a><a name="iomanip_put_money"></a> put_money
+## <a name="put_money"></a><a name="iomanip_put_money"></a> `put_money`
 
 目的の形式を使用してストリームに金額を挿入します。
 
@@ -103,15 +103,15 @@ T8 put_money(const Money& amount, bool use_intl);
 
 ### <a name="parameters"></a>パラメーター
 
-*時間*\
+*`amount`*\
 ストリームに挿入する金額。
 
-*use_intl*\
+*`use_intl`*\
 マニピュレーターで国際化形式を使用する必要がある場合は、に設定 **`true`** **`false`** します。
 
 ### <a name="return-value"></a>戻り値
 
-`str` が返されます。
+`str` を返します。
 
 ### <a name="remarks"></a>解説
 
@@ -119,7 +119,7 @@ T8 put_money(const Money& amount, bool use_intl);
 
 `Money` は型である **`long double`** か、 `basic_string` と同じ要素および特徴パラメーターを持つのインスタンス化である必要があり `str` ます。
 
-## <a name="put_time"></a><a name="iomanip_put_time"></a> put_time
+## <a name="put_time"></a><a name="iomanip_put_time"></a> `put_time`
 
 指定された形式を使用して、時間構造体内の時刻値をストリームに書き込みます。
 
@@ -130,19 +130,19 @@ T10 put_time(struct tm* time_ptr, const Elem* time_format);
 
 ### <a name="parameters"></a>パラメーター
 
-*time_ptr*\
+*`time_ptr`*\
 時間構造体で提供される、ストリームに書き込む時刻値。
 
-*time_format*\
+*`time_format`*\
 時刻値を書き込むための目的の形式。
 
 ### <a name="remarks"></a>解説
 
-マニピュレーターは、ストリーム `str` に挿入されるときに、`formatted output function` として動作するオブジェクトを返します。 出力関数は、`str` に関連付けられているロケール ファセット `time_put` のメンバー関数 `put` を呼び出します。 出力関数は、 *time_ptr* を使用して時間構造を示し、 *time_format* null で終わる書式文字列の先頭を示します。 成功した場合、この呼び出しは、書式文字列からのリテラル テキストと時間構造体からの変換された値を挿入します。 その後、マニピュレーターが `str` を返します。
+マニピュレーターは、ストリーム `str` に挿入されるときに、`formatted output function` として動作するオブジェクトを返します。 出力関数は、`str` に関連付けられているロケール ファセット `time_put` のメンバー関数 `put` を呼び出します。 出力関数は、を使用して *`time_ptr`* 時間構造を示し、 *`time_format`* null で終わる書式文字列の先頭を示します。 成功した場合、この呼び出しは、書式文字列からのリテラル テキストと時間構造体からの変換された値を挿入します。 その後、マニピュレーターが `str` を返します。
 
-## <a name="quoted"></a><a name="quoted"></a> 引用符
+## <a name="quoted"></a><a name="quoted"></a> `quoted`
 
-**(C++14 の新機能)** >> 演算子と << 演算子を使用したストリームとの文字列のラウンド トリップを有効にする、便利な iostream マニピュレーター。
+**(C++ 14 の新)** および演算子を使用して、ストリームとの間で文字列を簡単にラウンドトリップできるようにする iostream マニピュレーター `>>` `<<` 。
 
 ```cpp
 quoted(std::string str) // or wstring
@@ -153,13 +153,13 @@ quoted(const char* str, char delimiter, char escape) // or wide versions
 
 ### <a name="parameters"></a>パラメーター
 
-*引数*\
+*`str`*\
 Std:: string、char \* 、string リテラル、または未加工の文字列リテラル、またはこれらのいずれかのワイドバージョン (例: std:: wstring、wchar_t \* )。
 
-*区切り記号*\
+*`delimiter`*\
 文字列の先頭と末尾の区切り記号として使用するユーザー指定の文字またはワイド文字。
 
-*付ける*\
+*`escape`*\
 文字列内のエスケープ シーケンスのエスケープ文字として使用する、ユーザー指定の文字またはワイド文字。
 
 ### <a name="remarks"></a>解説
@@ -307,7 +307,7 @@ Press Enter to exit
 */
 ```
 
-## <a name="resetiosflags"></a><a name="resetiosflags"></a> resetiosflags
+## <a name="resetiosflags"></a><a name="resetiosflags"></a> `resetiosflags`
 
 指定したフラグをクリアします。
 
@@ -317,18 +317,18 @@ T1 resetiosflags(ios_base::fmtflags mask);
 
 ### <a name="parameters"></a>パラメーター
 
-*隠す*\
+*`mask`*\
 オフにするフラグ。
 
 ### <a name="return-value"></a>戻り値
 
-マニピュレーターは、ストリームに抽出または挿入されるときに、 `str` `str.` [setf](../standard-library/ios-base-class.md#setf) `(ios_base::` [fmtflags](../standard-library/ios-base-class.md#fmtflags)を呼び出し、を返すオブジェクトを返し `, mask)` `str` ます。
+マニピュレーターは、ストリームに抽出または挿入されるときにを呼び出し、を呼び出してから制御を返すオブジェクトを返し `str` `str.setf(ios_base::fmtflags, mask)` `str` ます。「」および「」を参照してください [`setf`](../standard-library/ios-base-class.md#setf) [`fmtflags`](../standard-library/ios-base-class.md#fmtflags) 。
 
 ### <a name="example"></a>例
 
-`resetiosflags` の使用例については、「[setw](../standard-library/iomanip-functions.md#setw)」を参照してください。
+`resetiosflags` の使用例については、[`setw`](../standard-library/iomanip-functions.md#setw) を参照してください。
 
-## <a name="setbase"></a><a name="setbase"></a> setbase
+## <a name="setbase"></a><a name="setbase"></a> `setbase`
 
 整数の基数を設定します。
 
@@ -338,26 +338,26 @@ T3 setbase(int base);
 
 ### <a name="parameters"></a>パラメーター
 
-*常用*\
+*`base`*\
 基数。
 
 ### <a name="return-value"></a>戻り値
 
-マニピュレーターは、ストリームに抽出または挿入されるときに、 `str` `str.setf(mask,` [ios_base:: basefield](../standard-library/ios-base-class.md#fmtflags)を呼び出し、を返すオブジェクトを返し `)` `str` ます。 ここで `mask` は、は次のように決定されます。
+マニピュレーターは、ストリームに抽出または挿入されるときにを呼び出し、を呼び出すと、を返します。このオブジェクトは、 `str` `str.setf(mask, ios_base::basefield)` `str` 「」を参照してください [`ios_base::basefield`](../standard-library/ios-base-class.md#fmtflags) 。 ここで `mask` は、は次のように決定されます。
 
-- *Base* が8の場合、 `mask` は `ios_base::` [10 月](../standard-library/ios-functions.md#oct)になります。
+- *`base`* が8の場合、 `mask` はに [`ios_base::oct`](../standard-library/ios-functions.md#oct) なります。
 
-- *Base* が10の場合、mask は `ios_base::` [dec](../standard-library/ios-functions.md#dec)です。
+- *`base`* が10の場合、mask はに [`ios_base::dec`](../standard-library/ios-functions.md#dec) なります。
 
-- *Base* が16の場合、 `mask` は `ios_base::` [16 進数](../standard-library/ios-functions.md#hex)です。
+- *`base`* が16の場合、 `mask` はに [`ios_base::hex`](../standard-library/ios-functions.md#hex) なります。
 
-- *Base* がその他の値の場合、mask は `ios_base::` [fmtflags](../standard-library/ios-base-class.md#fmtflags)に `(0)` なります。
+- *`base`* が他の値の場合、mask は [`ios_base::fmtflags(0)`](../standard-library/ios-base-class.md#fmtflags) ' です。
 
 ### <a name="example"></a>例
 
-`setbase` の使用例については、「[setw](../standard-library/iomanip-functions.md#setw)」を参照してください。
+`setbase` の使用例については、[`setw`](../standard-library/iomanip-functions.md#setw) を参照してください。
 
-## <a name="setfill"></a><a name="setfill"></a> setfill
+## <a name="setfill"></a><a name="setfill"></a> `setfill`
 
 右揃えの表示でスペースを埋めるために使用する文字を設定します。
 
@@ -368,18 +368,18 @@ T4 setfill(Elem Ch);
 
 ### <a name="parameters"></a>パラメーター
 
-*ハーフ*\
+*`Ch`*\
 右揃えの表示でスペースを埋めるために使用する文字。
 
 ### <a name="return-value"></a>戻り値
 
-このテンプレートマニピュレーターは、ストリームに抽出または挿入されるときに、 `str` fill を呼び出し、を返すオブジェクトを返し `str.` [](../standard-library/basic-ios-class.md#fill) `(Ch)` `str` ます。 型は、 `Elem` ストリームの要素型と同じである必要があり `str` ます。
+このテンプレートマニピュレーターは、ストリームに抽出または挿入されるときに、を呼び出し、を返すオブジェクトを返し `str` [`str.fill(Ch)`](../standard-library/basic-ios-class.md#fill) `str` ます。 型は、 `Elem` ストリームの要素型と同じである必要があり `str` ます。
 
 ### <a name="example"></a>例
 
-`setfill` の使用例については、「[setw](../standard-library/iomanip-functions.md#setw)」を参照してください。
+`setfill` の使用例については、[`setw`](../standard-library/iomanip-functions.md#setw) を参照してください。
 
-## <a name="setiosflags"></a><a name="setiosflags"></a> setiosflags
+## <a name="setiosflags"></a><a name="setiosflags"></a> `setiosflags`
 
 指定したフラグを設定します。
 
@@ -389,18 +389,18 @@ T2 setiosflags(ios_base::fmtflags mask);
 
 ### <a name="parameters"></a>パラメーター
 
-*隠す*\
+*`mask`*\
 設定するフラグ。
 
 ### <a name="return-value"></a>戻り値
 
-マニピュレーターは、ストリームに抽出または挿入されるときに `str` `str.` [setf](../standard-library/ios-base-class.md#setf) `(mask)` を呼び出し、を返すオブジェクトを返し `str` ます。
+マニピュレーターは、ストリームに抽出または挿入されるときにを呼び出し、を呼び出すと、を返します。このオブジェクトは、 `str` `str.setf(mask)` `str` 「」を参照してください [`setf`](../standard-library/ios-base-class.md#setf) 。
 
 ### <a name="example"></a>例
 
-`setiosflags` の使用例については、「[setw](../standard-library/iomanip-functions.md#setw)」を参照してください。
+`setiosflags` の使用例については、[`setw`](../standard-library/iomanip-functions.md#setw) を参照してください。
 
-## <a name="setprecision"></a><a name="setprecision"></a> setprecision
+## <a name="setprecision"></a><a name="setprecision"></a> `setprecision`
 
 浮動小数点値の有効桁数を設定します。
 
@@ -410,18 +410,18 @@ T5 setprecision(streamsize Prec);
 
 ### <a name="parameters"></a>パラメーター
 
-*Prec*\
+*`Prec`*\
 浮動小数点値の有効桁数。
 
 ### <a name="return-value"></a>戻り値
 
-マニピュレーターは、ストリームに抽出または挿入されるときに、 `str` `str.` [有効桁数](../standard-library/ios-base-class.md#precision)を呼び出し、を返すオブジェクトを返し `(Prec)` `str` ます。
+マニピュレーターは、ストリームに抽出または挿入されるときにを呼び出し、を呼び出すと、を返します。このオブジェクトは、 `str` `str.precision(Prec)` `str` 「」を参照してください [`precision`](../standard-library/ios-base-class.md#precision) 。
 
 ### <a name="example"></a>例
 
-`setprecision` の使用例については、「[setw](../standard-library/iomanip-functions.md#setw)」を参照してください。
+`setprecision` の使用例については、[`setw`](../standard-library/iomanip-functions.md#setw) を参照してください。
 
-## <a name="setw"></a><a name="setw"></a> setw
+## <a name="setw"></a><a name="setw"></a> `setw`
 
 ストリーム内の次の要素に対して表示フィールドの幅を指定します。
 
@@ -431,16 +431,16 @@ T6 setw(streamsize Wide);
 
 ### <a name="parameters"></a>パラメーター
 
-*変動*\
+*`Wide`*\
 表示フィールドの幅です。
 
 ### <a name="return-value"></a>戻り値
 
-マニピュレーターは、ストリームに抽出または挿入されるときに、 `str` width を呼び出し、を返すオブジェクトを返し `str.` [](../standard-library/ios-base-class.md#width) `(Wide)` `str` ます。
+マニピュレーターは、ストリームに抽出または挿入されるときにを呼び出し、を返すオブジェクトを返し `str` `str.width(Wide)` `str` ます。 詳細については、「[`width`](../standard-library/ios-base-class.md#width)」を参照してください。
 
 ### <a name="remarks"></a>解説
 
-setw は、ストリーム内の次の要素についてのみ幅を設定します。幅を指定する各要素の前に setw を挿入する必要があります。
+`setw` は、ストリーム内の次の要素に対してのみ幅を設定し、幅を指定する各要素の前に挿入する必要があります。
 
 ### <a name="example"></a>例
 
@@ -659,4 +659,4 @@ l5 = 65536
 
 ## <a name="see-also"></a>関連項目
 
-[\<iomanip>](../standard-library/iomanip.md)
+[`<iomanip>`](../standard-library/iomanip.md)

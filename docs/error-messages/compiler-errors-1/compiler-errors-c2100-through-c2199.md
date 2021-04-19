@@ -24,12 +24,12 @@ helpviewer_keywords:
 - C2187
 - C2189
 ms.assetid: 1ccab076-0954-4386-b959-d3112a6793ae
-ms.openlocfilehash: 5948ed2d41a5b20e9c599c6a4c2b27198f8b2d4c
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 5d5e4ac6516cc713ae53d077b72675d6657a4b9b
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97318976"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721759"
 ---
 # <a name="compiler-errors-c2100-through-c2199"></a>コンパイラ エラー (C2100 - C2199)
 
@@ -145,4 +145,4 @@ ms.locfileid: "97318976"
 ## <a name="see-also"></a>関連項目
 
 [C/c + + コンパイラおよびビルドツールのエラーと警告](../compiler-errors-1/c-cpp-build-errors.md) \
-[コンパイラ エラー (C2000 - C3999)](../compiler-errors-1/compiler-errors-c2000-c3999.md)
+[コンパイラエラー C2000-C3999、C7000-C7999](../compiler-errors-1/compiler-errors-c2000-c3999.md)

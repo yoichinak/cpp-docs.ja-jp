@@ -101,12 +101,12 @@ helpviewer_keywords:
 - C3377
 - C3378
 ms.assetid: 190b7d29-ffe6-4261-921d-140da1935d00
-ms.openlocfilehash: 7c3a2f00edd5bee55ba623125c65590584751c39
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: c0a7ed5541615dc25d2b414c4717b1a65ea187e4
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97238649"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721824"
 ---
 # <a name="compiler-errors-c3300-through-c3399"></a>コンパイラ エラー (C3300 - C3399)
 
@@ -165,7 +165,7 @@ ms.locfileid: "97238649"
 |コンパイラエラー C3344|明示的な特殊化または '*symbol*' の部分的特殊化を定義することはできません|
 |[コンパイラ エラー C3345](compiler-error-c3345.md)|'*name*': モジュール名の識別子が無効です。|
 |コンパイラエラー C3346|名前空間ではないスコープでのエクスポートされた宣言|
-|[コンパイラ エラー C3347](compiler-error-c3347.md)|'*argument*': 必要な引数が属性 *asttribute* に指定されていません|
+|[コンパイラ エラー C3347](compiler-error-c3347.md)|'*argument*': 必要な引数が属性 *属性名* に指定されていません|
 |コンパイラエラー C3348|エクスポートされたテンプレートは、現在の C++ 標準の一部ではありません|
 |コンパイラエラー C3349|'*class*::*member*': マルチキャスト属性は、プロバイダー *プロバイダー* によって既に実装されています|
 |[コンパイラ エラー C3350](compiler-error-c3350.md)|' *function*': デリゲートコンストラクターには *数値* 引数が必要です|
@@ -222,4 +222,4 @@ ms.locfileid: "97238649"
 ## <a name="see-also"></a>関連項目
 
 [C/c + + コンパイラおよびビルドツールのエラーと警告](../compiler-errors-1/c-cpp-build-errors.md) \
-[コンパイラ エラー (C2000 - C3999)](../compiler-errors-1/compiler-errors-c2000-c3999.md)
+[コンパイラエラー C2000-C3999、C7000-C7999](../compiler-errors-1/compiler-errors-c2000-c3999.md)

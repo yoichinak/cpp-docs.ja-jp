@@ -41,12 +41,12 @@ helpviewer_keywords:
 - C4767
 - C4770
 ms.assetid: 22bd4392-f3be-445c-9f23-6126aebac901
-ms.openlocfilehash: 9290f01d24e628ead4649c28ecbfacfec0803591
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 4533838f099fbbc3fc4e46ec523ac928ba531e46
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97197999"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721200"
 ---
 # <a name="compiler-warnings-c4600-through-c4799"></a>コンパイラ警告 (C4600 - C4799)
 
@@ -56,7 +56,7 @@ ms.locfileid: "97197999"
 
 ## <a name="warning-messages"></a>警告メッセージ
 
-|警告|Message|
+|警告|メッセージ|
 |-------------|-------------|
 |[コンパイラ警告 (レベル 1) C4600](../../error-messages/compiler-warnings/compiler-warning-level-1-c4600.md)|#pragma ' macro name ': 有効な空でない文字列が必要です。|
 |[コンパイラ警告 (レベル 1) C4602](compiler-warning-level-1-c4602.md)|#pragma pop_macro: ' macro name ' は、この識別子に対して以前の #pragma push_macro がありません|
@@ -142,6 +142,7 @@ ms.locfileid: "97197999"
 |[コンパイラの警告 (レベル1、エラー) C4694](../../error-messages/compiler-warnings/compiler-warning-c4694.md)|' class ': シールドされた抽象クラスは、基底クラス ' base_class ' を持つことはできません|
 |コンパイラの警告 (レベル 1) C4695|#pragma execution_character_set: ' character set ' はサポートされている引数ではありません: 現在は ' UTF-8 ' のみがサポートされています|
 |コンパイラの警告 (レベル 1) C4696|/ZBvalue1 オプションが範囲を超えています。' value2 ' と想定しています|
+| [コンパイラの警告 (レベル 3) C4698](../../error-messages/compiler-warnings/c4698.md) | '*feature*' は評価のみを目的としており、今後の更新で変更または削除される可能性があります。 |
 |[コンパイラ警告 (レベル 1 およびレベル 4) C4700](../../error-messages/compiler-warnings/compiler-warning-level-1-and-level-4-c4700.md)|初期化されていないローカル変数 ' name ' が使用されています|
 |[コンパイラ警告 (レベル 4) C4701](../../error-messages/compiler-warnings/compiler-warning-level-4-c4701.md)|初期化されていない可能性があるローカル変数 ' name ' を使用します|
 |[コンパイラ警告 (レベル 4) C4702](../../error-messages/compiler-warnings/compiler-warning-level-4-c4702.md)|到達できないコード|
@@ -199,7 +200,7 @@ ms.locfileid: "97197999"
 |[コンパイラ警告 (レベル 1) C4788](../../error-messages/compiler-warnings/compiler-warning-level-1-c4788.md)|' identifier ': 識別子が ' number ' 文字に切り詰められました|
 |[コンパイラ警告 (レベル 1) C4789](../../error-messages/compiler-warnings/compiler-warning-level-1-c4789.md)|バッファー 'identifier' (サイズが N バイト) でオーバーランが発生します。M バイトがオフセット L から書き込まれます|
 |コンパイラの警告 (レベル 2) C4792|関数 '% s ' は sysimport を使用して宣言され、ネイティブコードから参照されています。リンクにはインポートライブラリが必要です|
-|[コンパイラ警告 (レベル 1 および 3) C4793](../../error-messages/compiler-warnings/compiler-warning-level-1-and-3-c4793.md)|' function ': 関数はネイティブとしてコンパイルされました: \ n\t ' reason '|
+|[コンパイラ警告 (レベル 1 および 3) C4793](../../error-messages/compiler-warnings/compiler-warning-level-1-and-3-c4793.md)|' function ': 関数はネイティブとしてコンパイルされています: ' reason '|
 |[コンパイラ警告 (レベル 1) C4794](compiler-warning-level-1-c4794.md)|スレッドローカルストレージ変数 '% s ' のセグメントが '% s ' から '% s ' に変更されました|
 |[コンパイラ警告 (レベル 1) C4799](../../error-messages/compiler-warnings/compiler-warning-level-1-c4799.md)|関数 ' function ' には、EMM 命令がありません。|
 

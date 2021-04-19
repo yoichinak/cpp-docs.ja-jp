@@ -1,15 +1,15 @@
 ---
-description: 詳細については、「コンパイラエラー C2000-C3999」を参照してください。
-title: コンパイラ エラー (C2000 - C3999)
-ms.date: 04/22/2019
-ms.openlocfilehash: 423911ffd72efd5c17253b26f5c8658eaaae21a5
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+description: コンパイラエラーの C2000-C3999 と C7000-C7999 について説明します。
+title: コンパイラエラー C2000-C3999、C7000-C7999
+ms.date: 04/18/2021
+ms.openlocfilehash: ff9700f8dc786daa8426f91f492e6203dc1260ec
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97335051"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721772"
 ---
-# <a name="compiler-errors-c2000---c3999"></a>コンパイラ エラー (C2000 - C3999)
+# <a name="compiler-errors-c2000---c3999-c7000---c7999"></a>コンパイラエラー C2000-C3999、C7000-C7999
 
 ドキュメントのこのセクションの記事では、Microsoft C/c + + コンパイラによって生成されるエラーメッセージのサブセットについて説明します。
 
@@ -30,7 +30,9 @@ ms.locfileid: "97335051"
 [コンパイラエラー C3200 から C3299](../compiler-errors-2/compiler-errors-c3200-through-c3299.md) \
 [コンパイラエラー C3300 から C3399](../compiler-errors-2/compiler-errors-c3300-through-c3399.md) \
 [コンパイラエラー C3400 から C3499](../compiler-errors-2/compiler-errors-c3400-through-c3499.md) \
-[コンパイラ エラー (C3500 - C3999)](../compiler-errors-2/compiler-errors-c3500-through-c3999.md)
+[コンパイラエラー C3500 から C3999](../compiler-errors-2/compiler-errors-c3500-through-c3999.md) \
+[コンパイラエラー C7000 から C7499](../compiler-errors-2/compiler-errors-c7000-through-c7499.md) \
+[コンパイラエラー C7500 から C7999](../compiler-errors-2/compiler-errors-c7500-through-c7999.md)
 
 ## <a name="see-also"></a>関連項目
 

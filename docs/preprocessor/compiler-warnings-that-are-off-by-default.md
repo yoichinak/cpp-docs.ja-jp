@@ -6,12 +6,12 @@ helpviewer_keywords:
 - warnings, compiler
 - cl.exe compiler, setting options
 ms.assetid: 69809cfb-a38a-4035-b154-283a61938df8
-ms.openlocfilehash: 2178d62318cfc70fd7ec9805999bafb9a61c18cf
-ms.sourcegitcommit: 83a396e9491fd6bdecfb48ff225ef01c959829a6
+ms.openlocfilehash: ec65eba6c6af948b25e35186967b51c52fe65dac
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107576912"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721357"
 ---
 # <a name="compiler-warnings-that-are-off-by-default"></a>既定で無効になっているコンパイラ警告
 
@@ -70,7 +70,7 @@ Visual Studio 2015 以降のバージョンでは、次の警告が既定で無�
 |[C4435](../error-messages/compiler-warnings/compiler-warning-level-4-c4435.md) (レベル 4)|'*class1*': 仮想ベース '*class2*' により、/vd2 下のオブジェクトレイアウトが変更されます|
 |[C4437](../error-messages/compiler-warnings/compiler-warning-level-4-c4437.md) (レベル 4)|仮想ベース '*class1*' から '*class2*' への dynamic_cast は、一部のコンテキストでは失敗する可能性があります|
 |C4444 (レベル 3)|トップ レベルの '__unaligned' がこのコンテキストで実装されていません。|
-|[C4464](../error-messages/compiler-warnings/c4464.md) (レベル 4)|相対インクルードパスに '.. ' が含まれています|
+|[C4464](../error-messages/compiler-warnings/compiler-warning-level-4-c4464.md) (レベル 4)|相対インクルードパスに '.. ' が含まれています|
 |[C4471](../error-messages/compiler-warnings/compiler-warning-level-4-c4471.md) (レベル 4)|対象範囲外の列挙の事前宣言には、基になる型 (int と仮定) の<sup>Perm</sup>が必要です|
 |C4472 (レベル 1)|'*identifier*' はネイティブ列挙型です。マネージ列挙型を宣言するには、アクセス指定子 (private/public) を追加してください|
 |[C4514](../error-messages/compiler-warnings/compiler-warning-level-4-c4514.md) (レベル 4)|'*function*': 参照されていないインライン関数は削除されました|

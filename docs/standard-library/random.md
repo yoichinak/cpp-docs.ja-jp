@@ -7,25 +7,25 @@ f1_keywords:
 helpviewer_keywords:
 - random header
 ms.assetid: 60afc25c-b162-4811-97c1-1b65398d4c57
-ms.openlocfilehash: 4080e305620dbe4b8fa1674762c27ece4eccd0a1
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: 85c2facebec49c4f15fb4a8705b672e677df926c
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97337973"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721344"
 ---
-# <a name="ltrandomgt"></a>&lt;random&gt;
+# `<random>`
 
 乱数生成の機能を定義し、一様に分布した乱数を作成できるようにします。
 
 ## <a name="requirements"></a>要件
 
-**ヘッダー**: \<random>
+**ヘッダー**: `<random>`
 
 **名前空間:** std
 
 > [!NOTE]
-> ライブラリでは \<random> 、' #include <initializer_list> ' ステートメントが使用されています。
+> ライブラリでは `<random>` 、' #include <initializer_list> ' ステートメントが使用されています。
 
 ## <a name="summary"></a>まとめ
 
@@ -43,9 +43,9 @@ ms.locfileid: "97337973"
 
 ### <a name="quick-tips"></a>簡単なヒント
 
-次に、\<random> を使用する場合に留意すべきヒントを示します。
+次に、`<random>` を使用する場合に留意すべきヒントを示します。
 
-- ほとんどの場合、URNG は分布で成形される必要がある生のビットを生成します (主な例外は、[std::shuffle()](../standard-library/algorithm-functions.md#shuffle) で、理由は URNG を直接使用するからです)。
+- ほとんどの場合、URNG は分布で成形される必要がある生のビットを生成します (これに関する注目すべき例外は、 [`std::shuffle()`](../standard-library/algorithm-functions.md#shuffle) URNG を直接使用するためです)。
 
 - URNG や分布の実行は変更操作を意味するため、URNG または分布の単一のインスタンス化を同時に、安全に呼び出すことはできません。 詳細については、「[C++ 標準ライブラリ内のスレッド セーフ](../standard-library/thread-safety-in-the-cpp-standard-library.md)」をご覧ください。
 
@@ -53,7 +53,7 @@ ms.locfileid: "97337973"
 
 - 大部分のアプリケーションに対して最も役立つ組み合わせは、`mt19937` エンジンと `uniform_int_distribution` の組み合わせです (この記事の後の方にある[コード例](#code)に示されています)。
 
-\<random> ヘッダーには選択できるオプションが多数あり、これらはいずれも以前の C ランタイム関数 `rand()` より適しています。 `rand()` の不具合やこれらの不具合に対する \<random> の対応の詳細については、[このビデオ](https://go.microsoft.com/fwlink/p/?linkid=397615)をご覧ください。
+`<random>` ヘッダーには選択できるオプションが多数あり、これらはいずれも以前の C ランタイム関数 `rand()` より適しています。 `rand()` の不具合やこれらの不具合に対する `<random>` の対応の詳細については、[このビデオ](https://go.microsoft.com/fwlink/p/?linkid=397615)をご覧ください。
 
 ## <a name="examples"></a><a name="code"></a> 使用例
 
@@ -222,11 +222,11 @@ URNG は、次の特性においてよく説明されます。
 
 3. **品質**: 生成されたシーケンスがどれほど真の乱数に近いか。 これは通常 "*ランダム性*" と呼ばれます。
 
-次の各セクションでは、 \<random> ヘッダーで提供されている Uniform Random Number Generator (URNG) を示します。
+次の各セクションでは、 `<random>` ヘッダーで提供されている Uniform Random Number Generator (URNG) を示します。
 
 #### <a name="non-deterministic-generator"></a><a name="rd"></a> 非確定的なジェネレーター
 
-[random_device クラス](../standard-library/random-device-class.md)\
+[`random_device` 講義](../standard-library/random-device-class.md)\
 外部デバイスを使用して、非確定的で暗号的に安全なランダム シーケンスを生成します。 通常、エンジンにシードを設定するために使用されます。 パフォーマンスは低いですが、品質は非常に高いです。 詳細については、「 [解説](#comments)」を参照してください。
 
 #### <a name="engine-typedefs-with-predefined-parameters"></a><a name="typedefs"></a> 定義済みのパラメーターを持つエンジンの Typedef
@@ -309,97 +309,97 @@ URNG は、次の特性においてよく説明されます。
 
 エンジン テンプレートは、スタンドアロンの URNG または[エンジン アダプター](#engadapt)に渡されるベース エンジンとして使用されます。 通常、これらは[定義済みのエンジンの typedef](#typedefs) でインスタンス化され、[分布](#distributions)に渡されます。 詳細については、「[エンジンと分布](#engdist)」をご覧ください。
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[linear_congruential_engine クラス](../standard-library/linear-congruential-engine-class.md)|線形合同法アルゴリズムでランダム シーケンスを生成します。 最も単純で、最も低品質です。|
-|[mersenne_twister_engine クラス](../standard-library/mersenne-twister-engine-class.md)|メルセンヌ ツイスタ アルゴリズムでランダム シーケンスを生成します。 最も複雑で、random_device クラスを除いて最も高品質です。 パフォーマンスは非常に高速です。|
-|[subtract_with_carry_engine クラス](../standard-library/subtract-with-carry-engine-class.md)|キャリー付き減算アルゴリズムでランダム シーケンスを生成します。 `linear_congruential_engine` の改善版ですが、`mersenne_twister_engine` より品質もパフォーマンスもかなり低いです。|
+|[`linear_congruential_engine` 講義](../standard-library/linear-congruential-engine-class.md)|線形合同法アルゴリズムでランダム シーケンスを生成します。 最も単純で、最も低品質です。|
+|[`mersenne_twister_engine` 講義](../standard-library/mersenne-twister-engine-class.md)|メルセンヌ ツイスタ アルゴリズムでランダム シーケンスを生成します。 最も複雑で、random_device クラスを除いて最も高品質です。 パフォーマンスは非常に高速です。|
+|[`subtract_with_carry_engine` 講義](../standard-library/subtract-with-carry-engine-class.md)|キャリー付き減算アルゴリズムでランダム シーケンスを生成します。 `linear_congruential_engine` の改善版ですが、`mersenne_twister_engine` より品質もパフォーマンスもかなり低いです。|
 
 #### <a name="engine-adaptor-templates"></a><a name="engadapt"></a> エンジン アダプター テンプレート
 
 エンジン アダプターは他の (ベース) エンジンを適応させるテンプレートです。 通常、これらは[定義済みのエンジンの typedef](#typedefs) でインスタンス化され、[分布](#distributions)に渡されます。 詳細については、「[エンジンと分布](#engdist)」をご覧ください。
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[discard_block_engine クラス](../standard-library/discard-block-engine-class.md)|ベースとなるエンジンから返された値を破棄することによってランダム シーケンスを生成します。|
-|[independent_bits_engine クラス](../standard-library/independent-bits-engine-class.md)|ベースのエンジンから返された値のビットを再パックすることで、指定したビット数でランダム シーケンスを生成します。|
-|[shuffle_order_engine クラス](../standard-library/shuffle-order-engine-class.md)|ベースのエンジンから返された値を並べ替えることで、ランダム シーケンスを生成します。|
+|[`discard_block_engine` 講義](../standard-library/discard-block-engine-class.md)|ベースとなるエンジンから返された値を破棄することによってランダム シーケンスを生成します。|
+|[`independent_bits_engine` 講義](../standard-library/independent-bits-engine-class.md)|ベースのエンジンから返された値のビットを再パックすることで、指定したビット数でランダム シーケンスを生成します。|
+|[`shuffle_order_engine` 講義](../standard-library/shuffle-order-engine-class.md)|ベースのエンジンから返された値を並べ替えることで、ランダム シーケンスを生成します。|
 
 [[エンジンテンプレート](#eng)]
 
 ### <a name="random-number-distributions"></a><a name="distributions"></a> 乱数分布
 
-次の各セクションに、\<random> ヘッダーで提供されている分布を示します。 分布は後処理メカニズムであり、通常は入力として URNG 出力を使用し、定義された統計的確率密度関数によって出力を分布させます。 詳細については、「[エンジンと分布](#engdist)」をご覧ください。
+次の各セクションに、`<random>` ヘッダーで提供されている分布を示します。 分布は後処理メカニズムであり、通常は入力として URNG 出力を使用し、定義された統計的確率密度関数によって出力を分布させます。 詳細については、「[エンジンと分布](#engdist)」をご覧ください。
 
 #### <a name="uniform-distributions"></a>一様分布
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[uniform_int_distribution クラス](../standard-library/uniform-int-distribution-class.md)|閉区間 \[a, b] (包含的-包含的) 内の範囲にわたる一様の整数値分布を作成します。|
-|[uniform_real_distribution クラス](../standard-library/uniform-real-distribution-class.md)|半開区間 [a, b) (包含的-排他的) 内の範囲にわたる一様の実数 (浮動小数点) 値分布を作成します。|
-|[generate_canonical](../standard-library/random-functions.md#generate_canonical)|[0, 1) (包含的-排他的) にわたる特定の精度の実数 (浮動小数点) 値の均等分布を作成します。|
+|[`uniform_int_distribution` 講義](../standard-library/uniform-int-distribution-class.md)|閉区間 \[a, b] (包含的-包含的) 内の範囲にわたる一様の整数値分布を作成します。|
+|[`uniform_real_distribution` 講義](../standard-library/uniform-real-distribution-class.md)|半開区間 [a, b) (包含的-排他的) 内の範囲にわたる一様の実数 (浮動小数点) 値分布を作成します。|
+|[`generate_canonical`](../standard-library/random-functions.md#generate_canonical)|[0, 1) (包含的-排他的) にわたる特定の精度の実数 (浮動小数点) 値の均等分布を作成します。|
 
 [[乱数分布](#distributions)]
 
 #### <a name="bernoulli-distributions"></a>ベルヌイ分布
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[bernoulli_distribution クラス](../standard-library/bernoulli-distribution-class.md)|値のベルヌーイ分布を生成 **`bool`** します。|
-|[binomial_distribution クラス](../standard-library/binomial-distribution-class.md)|整数値の二項分布を作成します。|
-|[geometric_distribution クラス](../standard-library/geometric-distribution-class.md)|整数値の幾何分布を作成します。|
-|[negative_binomial_distribution クラス](../standard-library/negative-binomial-distribution-class.md)|整数値の負の二項分布を作成します。|
+|[`bernoulli_distribution` 講義](../standard-library/bernoulli-distribution-class.md)|値のベルヌーイ分布を生成 **`bool`** します。|
+|[`binomial_distribution` 講義](../standard-library/binomial-distribution-class.md)|整数値の二項分布を作成します。|
+|[`geometric_distribution` 講義](../standard-library/geometric-distribution-class.md)|整数値の幾何分布を作成します。|
+|[`negative_binomial_distribution` 講義](../standard-library/negative-binomial-distribution-class.md)|整数値の負の二項分布を作成します。|
 
 [[乱数分布](#distributions)]
 
 #### <a name="normal-distributions"></a>正規分布
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[cauchy_distribution クラス](../standard-library/cauchy-distribution-class.md)|実数 (浮動小数点) 値のコーシー分布を作成します。|
-|[chi_squared_distribution クラス](../standard-library/chi-squared-distribution-class.md)|実数 (浮動小数点) 値のカイ 2 乗分布を作成します。|
-|[fisher_f_distribution クラス](../standard-library/fisher-f-distribution-class.md)|実数 (浮動小数点) 値の F 分布 (スネデカー分布の F 分布または Fisher-Snedecor 分布とも呼ばれます) を生成します。|
-|[lognormal_distribution クラス](../standard-library/lognormal-distribution-class.md)|実数 (浮動小数点) 値の対数正規分布を作成します。|
-|[normal_distribution クラス](../standard-library/normal-distribution-class.md)|実数 (浮動小数点) 値の正規 (ガウス) 分布を作成します。|
-|[student_t_distribution クラス](../standard-library/student-t-distribution-class.md)|実数 (浮動小数点) 値のスチューデントの *t* 分布を作成します。|
+|[`cauchy_distribution` 講義](../standard-library/cauchy-distribution-class.md)|実数 (浮動小数点) 値のコーシー分布を作成します。|
+|[`chi_squared_distribution` 講義](../standard-library/chi-squared-distribution-class.md)|実数 (浮動小数点) 値のカイ 2 乗分布を作成します。|
+|[`fisher_f_distribution` 講義](../standard-library/fisher-f-distribution-class.md)|実数 (浮動小数点) 値の F 分布 (スネデカー分布の F 分布または Fisher-Snedecor 分布とも呼ばれます) を生成します。|
+|[`lognormal_distribution` 講義](../standard-library/lognormal-distribution-class.md)|実数 (浮動小数点) 値の対数正規分布を作成します。|
+|[`normal_distribution` 講義](../standard-library/normal-distribution-class.md)|実数 (浮動小数点) 値の正規 (ガウス) 分布を作成します。|
+|[`student_t_distribution` 講義](../standard-library/student-t-distribution-class.md)|実数 (浮動小数点) 値のスチューデントの *t* 分布を作成します。|
 
 [[乱数分布](#distributions)]
 
 #### <a name="poisson-distributions"></a>ポワソン分布
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[exponential_distribution クラス](../standard-library/exponential-distribution-class.md)|実数 (浮動小数点) 値の指数分布を作成します。|
-|[extreme_value_distribution クラス](../standard-library/extreme-value-distribution-class.md)|実数 (浮動小数点) 値の極値分布を作成します。|
-|[gamma_distribution クラス](../standard-library/gamma-distribution-class.md)|実数 (浮動小数点) 値のガンマ分布を作成します。|
-|[poisson_distribution クラス](../standard-library/poisson-distribution-class.md)|整数値のポワソン分布を作成します。|
-|[weibull_distribution クラス](../standard-library/weibull-distribution-class.md)|実数 (浮動小数点) 値のワイブル分布を作成します。|
+|[`exponential_distribution` 講義](../standard-library/exponential-distribution-class.md)|実数 (浮動小数点) 値の指数分布を作成します。|
+|[`extreme_value_distribution` 講義](../standard-library/extreme-value-distribution-class.md)|実数 (浮動小数点) 値の極値分布を作成します。|
+|[`gamma_distribution` 講義](../standard-library/gamma-distribution-class.md)|実数 (浮動小数点) 値のガンマ分布を作成します。|
+|[`poisson_distribution` 講義](../standard-library/poisson-distribution-class.md)|整数値のポワソン分布を作成します。|
+|[`weibull_distribution` 講義](../standard-library/weibull-distribution-class.md)|実数 (浮動小数点) 値のワイブル分布を作成します。|
 
 [[乱数分布](#distributions)]
 
 #### <a name="sampling-distributions"></a>標本分布
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[discrete_distribution クラス](../standard-library/discrete-distribution-class.md)|整数の離散分布を作成します。|
-|[piecewise_constant_distribution クラス](../standard-library/piecewise-constant-distribution-class.md)|実数 (浮動小数点) 値の区分定数分布を作成します。|
-|[piecewise_linear_distribution クラス](../standard-library/piecewise-linear-distribution-class.md)|実数 (浮動小数点) 値の区分線形分布を作成します。|
+|[`discrete_distribution` 講義](../standard-library/discrete-distribution-class.md)|整数の離散分布を作成します。|
+|[`piecewise_constant_distribution` 講義](../standard-library/piecewise-constant-distribution-class.md)|実数 (浮動小数点) 値の区分定数分布を作成します。|
+|[`piecewise_linear_distribution` 講義](../standard-library/piecewise-linear-distribution-class.md)|実数 (浮動小数点) 値の区分線形分布を作成します。|
 
 [[乱数分布](#distributions)]
 
 ### <a name="utility-functions"></a>ユーティリティ関数
 
-このセクションでは、\<random> ヘッダーで提供される一般的なユーティリティ関数を示します。
+このセクションでは、`<random>` ヘッダーで提供される一般的なユーティリティ関数を示します。
 
-|名前|説明|
+|名前|Description|
 |-|-|
-|[seed_seq クラス](../standard-library/seed-seq-class.md)|バイアスのかかっていないスクランブルされたシード シーケンスを生成します。 ランダムな変量ストリームのレプリケーションを避けるために使用されます。 エンジンから多数の URNG がインスタンス化される場合に役立ちます。|
+|[`seed_seq` 講義](../standard-library/seed-seq-class.md)|バイアスのかかっていないスクランブルされたシード シーケンスを生成します。 ランダムな変量ストリームのレプリケーションを避けるために使用されます。 エンジンから多数の URNG がインスタンス化される場合に役立ちます。|
 
-### <a name="operators"></a>オペレーター
+### <a name="operators"></a>演算子
 
-このセクションでは、\<random> ヘッダーで提供される演算子を示します。
+このセクションでは、`<random>` ヘッダーで提供される演算子を示します。
 
-|名前|説明|
+|名前|Description|
 |-|-|
 |`operator==`|演算子の左側の URNG が右側のエンジンと等しいかどうかを調べます。|
 |`operator!=`|演算子の左側の URNG が右側のエンジンと等しくないかどうかを調べます。|
@@ -408,7 +408,7 @@ URNG は、次の特性においてよく説明されます。
 
 ## <a name="engines-and-distributions"></a><a name="engdist"></a> エンジンとディストリビューション
 
-で定義されているこれらのクラステンプレートカテゴリの詳細については、次のセクションを参照してください \<random> 。 これらのクラステンプレートカテゴリはいずれも引数として型を受け取り、共有テンプレートパラメーター名を使用して、実際の引数の型として許可されている型のプロパティを次のように記述します。
+で定義されているこれらのクラステンプレートカテゴリの詳細については、次のセクションを参照してください `<random>` 。 これらのクラステンプレートカテゴリはいずれも引数として型を受け取り、共有テンプレートパラメーター名を使用して、実際の引数の型として許可されている型のプロパティを次のように記述します。
 
 - `IntType` 、、、、、、 **`short`** **`int`** **`long`** **`long long`** **`unsigned short`** **`unsigned int`** **`unsigned long`** 、または **`unsigned long long`** があることを示します。
 
@@ -434,7 +434,7 @@ URNG は、次の特性においてよく説明されます。
 
 - `void seed(result_type s)`: シード値 `s` を使用してジェネレーターにシードを設定します。 エンジンの場合、シグネチャは `void seed(result_type s = default_seed)` で、既定のパラメーターがサポートされます (エンジン アダプターでは、別個の `void seed()` が定義されています。次のサブセクションを参照してください)。
 
-- `template <class Seq> void seed(Seq& q)`[seed_seq](../standard-library/seed-seq-class.md)を使用してジェネレーターをシードし `Seq` ます。
+- `template <class Seq> void seed(Seq& q)`を使用してジェネレーターをシードし [`seed_seq`](../standard-library/seed-seq-class.md) `Seq` ます。
 
 - 引数 `result_type x` を持つ明示的なコンストラクター。作成されるジェネレーターには、`seed(x)` を呼び出した場合と同じようにシード値が設定されます。
 
@@ -496,7 +496,7 @@ URNG は、次の特性においてよく説明されます。
 
 次の比較表に示すように、Visual Studio には 2 つの非常に有用な URNG (`mt19937` と `random_device`) があります。
 
-|URNG|速い|暗号的に安全|シード設定可能|Deterministic|
+|URNG|Fast|暗号的に安全|シード設定可能|決定的|
 |----------|-----------|---------------------|---------------|--------------------|
 |`mt19937`|はい|いいえ|はい|はい<sup>*</sup>|
 |`random_device`|いいえ|はい|いいえ|いいえ|
