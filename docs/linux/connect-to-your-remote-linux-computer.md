@@ -2,12 +2,12 @@
 title: Visual Studio でターゲットの Linux システムに接続する
 description: Visual Studio の C++ プロジェクト内からリモートの Linux マシンまたは Linux 用 Windows サブシステムに接続する方法です。
 ms.date: 01/8/2021
-ms.openlocfilehash: 653a1832b4aac6b87c49102440181bb0e55a45a9
-ms.sourcegitcommit: 3d9cfde85df33002e3b3d7f3509ff6a8dc4c0a21
+ms.openlocfilehash: b906b8f0b59742eec175e620a3f8c0394d46fe84
+ms.sourcegitcommit: 81bc4e45590893b4067f21716c208926d3d53c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98667589"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107002873"
 ---
 # <a name="connect-to-your-target-linux-system-in-visual-studio"></a>Visual Studio でターゲットの Linux システムに接続する
 
@@ -103,6 +103,17 @@ Linux システム上でまだ ssh が設定および実行されていない場
    ::: moniker-end
 
    ::: moniker range="msvc-160"
+   
+## <a name="host-key-verification"></a>ホスト キーの検証
+
+Visual Studio バージョン 16.10 以降では、Visual Studio がリモート システムに初めて接続するときに、サーバーによって提示されたホスト キーのフィンガープリントを確認するように求められます。 以前に OpenSSH のコマンドライン クライアントまたは PuTTY を使用している方は、これを熟知していることでしょう。 フィンガープリントは、サーバーを識別し、Visual Studio が意図した信頼されたサーバーに接続していることを保証するために使用されます。 
+
+新しいリモート接続を最初に確立するとき、またはキャッシュされたフィンガープリントが変更されるたびに、サーバーによって提示されたホスト キーのフィンガープリントを、受け入れるか拒否するか確認するメッセージが表示されます。 接続マネージャーで接続を選択し、[確認] をクリックすることで、必要に応じてフィンガープリントを確認することもできます。 
+
+以前のバージョンの Visual Studio から Visual Studio 16.10 にアップグレードすると、既存のすべてのリモート接続は新しい接続として処理されます。 ホスト キーのフィンガープリントの受け入れを求めるメッセージが接続の確立前に表示され、承認されたフィンガープリントがキャッシュされます。 
+
+また、`update` 引数を使用して ConnectionManager.exe からリモート接続を更新することもできます。 
+
 
 ## <a name="supported-ssh-algorithms"></a>サポートされている SSH アルゴリズム
 
