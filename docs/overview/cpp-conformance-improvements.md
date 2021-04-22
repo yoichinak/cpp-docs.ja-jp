@@ -3,12 +3,12 @@ title: Visual Studio 2019 での C++ 準拠の強化
 description: Visual Studio の Microsoft C++ は、C++20 言語標準との完全準拠に向かって進んでいます。
 ms.date: 03/10/2021
 ms.technology: cpp-language
-ms.openlocfilehash: 3b78551ee4d8590403cdfaf77c267eef0ab6d811
-ms.sourcegitcommit: f8ba5db09d05683b24c58505f0e57c21f85545dc
+ms.openlocfilehash: c70b0db4d1d1163556fe746e0078412ae21e71d2
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103087260"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721447"
 ---
 # <a name="c-conformance-improvements-behavior-changes-and-bug-fixes-in-visual-studio-2019"></a>Visual Studio 2019 での C++ 準拠の強化、動作変更、バグ修正
 
@@ -179,7 +179,7 @@ constexpr void f() {
 Visual Studio 2019 では、`basic_string` 範囲コンストラクターで **`static_cast`** を含むコンパイラ診断が非表示になることがなくなりました。 次のコードは Visual Studio 2017 では、`out` の初期化時、データが失われ、 **`wchar_t`** が **`char`** になる可能性がありますが、警告なくコンパイルされます。
 
 ```cpp
-std::wstring ws = /* … */;
+std::wstring ws = /* . . . */;
 std::string out(ws.begin(), ws.end()); // VS2019 C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data.
 ```
 
@@ -1358,10 +1358,9 @@ int main() {
 
 Visual Studio 2019 バージョン 16.6 以降では、 **`typedef`** 宣言の動作が [P1766R1](https://wg21.link/P1766R1) に準拠するように制限されています。 この更新により、 **`typedef`** 宣言内の名前のないクラスは、次を除くメンバーを持つことができません。
 
-- 非静的データ メンバー、
-- メンバー クラス、
-- メンバー列挙型、
-- 既定のメンバー初期化子。
+- 既定のメンバー初期化子を持たない非静的データ メンバー、
+- メンバー クラス、または
+- メンバー列挙型。
 
 入れ子になった各クラスに対しても、同じ制限が再帰的に適用されます。 この制限は、リンケージのために **`typedef`** 名を持つ構造体の単純さを確保することを目的としています。 それらは、コンパイラがリンケージの **`typedef`** 名に達する前にリンケージ計算が必要となることがないように、単純である必要があります。
 
@@ -1825,7 +1824,7 @@ struct promise_type_legacy {
 
 // /std:c++latest
 struct promise_type {
-    auto initial_susepend() noexcept { return std::suspend_never{}; }
+    auto initial_suspend() noexcept { return std::suspend_never{}; }
     auto final_suspend() noexcept { return std::suspend_always{}; }
     ...
 };

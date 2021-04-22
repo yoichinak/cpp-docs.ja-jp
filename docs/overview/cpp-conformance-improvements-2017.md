@@ -1,14 +1,14 @@
 ---
 title: Visual Studio 2017 の C++ 準拠の強化
 description: Visual Studio 2017 の Microsoft C/C++ は、C++20 言語標準との完全準拠に向かって進んでいます。
-ms.date: 03/10/2021
+ms.date: 04/18/2021
 ms.technology: cpp-language
-ms.openlocfilehash: b2f697148c7671dcc56a6fd27a53131d01e3b88f
-ms.sourcegitcommit: f8ba5db09d05683b24c58505f0e57c21f85545dc
+ms.openlocfilehash: 6c23b4a1e85253fa304ff4b962958f80523a3416
+ms.sourcegitcommit: 6d2a4ab362b657d17ce1cb336b22b5454dc2bc7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103147276"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107721798"
 ---
 # <a name="c-conformance-improvements-behavior-changes-and-bug-fixes-in-visual-studio-2017"></a>Visual Studio 2017 での C++ 準拠の強化、動作変更、バグ修正
 
@@ -478,7 +478,7 @@ int main()
 
 ### <a name="experimental-api-warning-for-winrt"></a>WinRT に対する実験用 API の警告
 
-実験とフィードバックのためにリリースされている WinRT API は、`Windows.Foundation.Metadata.ExperimentalAttribute` で修飾されます。 Visual Studio 2017 バージョン 15.3 のコンパイラでは、この属性に対して警告 C4698 が生成されます。 以前のバージョンの Windows SDK に含まれる一部の API は、この属性で既に修飾されており、これらの API を呼び出すとこのコンパイラ警告がトリガーされるようになりました。 新しい Windows SDK では、付属するすべての型からこの属性が削除されています。 古い SDK を使っている場合は、付属する型のすべての呼び出しでこの警告を抑制する必要があります。
+実験とフィードバックのためにリリースされている WinRT API は、`Windows.Foundation.Metadata.ExperimentalAttribute` で修飾されます。 Visual Studio 2017 バージョン 15.3 のコンパイラは、この属性に対して警告 | [C4698](../error-messages/compiler-warnings/c4698.md) を生成します。 以前のバージョンの Windows SDK に含まれる一部の API は、この属性で既に修飾されており、これらの API を呼び出すとこのコンパイラ警告がトリガーされるようになりました。 新しい Windows SDK では、付属するすべての型からこの属性が削除されています。 古い SDK を使っている場合は、付属する型のすべての呼び出しでこの警告を抑制する必要があります。
 
 次のコードでは、警告 C4698 が生成されます。
 
@@ -545,7 +545,7 @@ void f()
 
 テンプレート クラスのメンバー関数のアウトオブライン定義では、既定の引数が許可されません。 コンパイラでは、 **`/permissive`** では警告が発生し、[`/permissive-`](../build/reference/permissive-standards-conformance.md) ではハード エラーが発生します。
 
-Visual Studio の以前のバージョンでは、形式が間違っている次のコードでランタイム クラッシュが発生する可能性がありました。 Visual Studio 2017 バージョン 15.3 では次の警告 C5034 が発生します。
+Visual Studio の以前のバージョンでは、形式が間違っている次のコードでランタイム クラッシュが発生する可能性がありました。 Visual Studio 2017 バージョン 15.3 は、警告 [C5037](../error-messages/compiler-warnings/c5037.md) を生成します。
 
 ```cpp
 template <typename T>
@@ -554,7 +554,7 @@ struct A {
 };
 
 template <typename T>
-T A<T>::f(T t, bool b = false) // C5034: 'A<T>::f': an out-of-line definition of a member of a class template cannot have default arguments
+T A<T>::f(T t, bool b = false) // C5037: 'A<T>::f': an out-of-line definition of a member of a class template cannot have default arguments
 {
     // ...
 }
@@ -1538,7 +1538,7 @@ struct D : B<T*> {
 
 ### <a name="c17-nodiscard-attribute---warning-level-increase"></a>C++ 17 `[[nodiscard]]` 属性 - 警告レベルの引き上げ
 
-Visual Studio 2017 バージョン 15.7 の **`/std:c++17`** モードでは、C4834 の警告レベルが W3 から W1 に引き上げられます。 **`void`** へのキャストによって、または **`/wd:4834`** をコンパイラに渡すことにより、警告を無効にすることができます。
+Visual Studio 2017 バージョン 15.7 の **`/std:c++17`** モードでは、[C4834](../error-messages/compiler-warnings/c4834.md) の警告レベルは W3 から W1 に引き上げられます。 この警告は、 **`void`** へのキャストにより、または **`/wd:4834`** をコンパイラに渡すことにより無効にできます。
 
 ```cpp
 [[nodiscard]] int f() { return 0; }

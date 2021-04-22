@@ -1,18 +1,17 @@
 ---
 description: '詳細情報: C 定数式'
 title: C 定数式
-ms.date: 06/14/2018
+ms.date: 04/14/2021
 helpviewer_keywords:
 - constant expressions, syntax
 - constant expressions
 - expressions [C++], constant
-ms.assetid: d48a6c47-e44c-4be2-9c8b-7944c7ef8de7
-ms.openlocfilehash: 82da5150b35035d96b28ff1091e754cb7043a5ca
-ms.sourcegitcommit: d6af41e42699628c3e2e6063ec7b03931a49a098
+ms.openlocfilehash: bec55ed077a14a5d38cc934a9a755f846dd59877
+ms.sourcegitcommit: d531c567c268b676b44abbc8416ba7e20d22044b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97289518"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107539249"
 ---
 # <a name="c-constant-expressions"></a>C 定数式
 
@@ -20,30 +19,30 @@ ms.locfileid: "97289518"
 
 ## <a name="syntax"></a>構文
 
-*constant-expression*:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*conditional-expression*
+*`constant-expression`*:\
+&emsp;*`conditional-expression`*
 
-*conditional-expression*:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*logical-OR-expression*<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*logical-OR-expression* **?** *expression* **:** *conditional-expression*
+*`conditional-expression`*:\
+&emsp;*`logical-OR-expression`*\
+&emsp;*`logical-OR-expression`* **`?`** *`expression`* **`:`** *`conditional-expression`*
 
-*expression*:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*assignment-expression*<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*expression* **,** *assignment-expression*
+*`expression`*:\
+&emsp;*`assignment-expression`*\
+&emsp;*`expression`* **`,`** *`assignment-expression`*
 
-*assignment-expression*:<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*conditional-expression*<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;*unary-expression* *assignment-operator* *assignment-expression*
+*`assignment-expression`*:\
+&emsp;*`conditional-expression`*\
+&emsp;*`unary-expression`* *`assignment-operator`* *`assignment-expression`*
 
-*assignment-operator*: 次のいずれか<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; **=** **&#42;=** **/=** **%=** **+=** **-=** **\<\<=** **>>=** **&=** **^=** **&#124;=**
+*`assignment-operator`* : 次のいずれか\
+&emsp;**`=`** **`*=`** **`/=`** **`%=`** **`+=`** **`-=`** **`<<=`** **`>>=`** **`&=`** **`^=`** **`|=`**
 
-構造体宣言子、列挙子、直接宣言子、直接抽象宣言子、およびラベル付きステートメントの必須でない要素は、必須でない要素の *constant-expression* を含みます。
+構造体宣言子、列挙子、直接宣言子、直接抽象宣言子、およびラベル付きステートメントの非終端要素には、 *`constant-expression`* 非終端要素が含まれます。
 
 整数定数式は、構造体のビット フィールド メンバーのサイズ、列挙定数の値、配列のサイズ、または **`case`** 定数の値を指定するために使用する必要があります。
 
-プリプロセッサ ディレクティブに使用される定数式は、追加の制限が適用されます。 そのため、"制限付き定数式" と呼ばれます。 制限付き定数式は、 **`sizeof`** 式、列挙の定数、任意の型への型キャスト、または浮動小数点型の定数を含めることはできません。 ただし、特別な定数式 **defined (** _identifier_ **)** を含めることができます。
+プリプロセッサ ディレクティブに使用される定数式には、いくつかの制限があります。 これらは、*制限付き* 定数式と呼ばれています。 制限付き定数式には、 **`sizeof`** 式、列挙の定数、任意の型への型キャスト、または浮動小数点型の定数を含めることはできません。 ただし、特別な定数式 **`defined (`** _identifier_ **`)`** は含めることができます。
 
 ## <a name="see-also"></a>関連項目
 
-- [オペランドおよび式](../c-language/operands-and-expressions.md)
+[オペランドおよび式](../c-language/operands-and-expressions.md)

@@ -58,6 +58,8 @@
       href: tool-errors/command-line-error-d8037.md
     - name: コマンド ライン エラー D8045
       href: tool-errors/command-line-error-d8045.md
+    - name: コマンド ライン エラー D8048
+      href: tool-errors/command-line-error-d8048.md
     - name: コマンド ライン警告 D9024
       href: tool-errors/command-line-warning-d9024.md
     - name: コマンド ライン警告 D9025
@@ -330,7 +332,7 @@
 - name: コンパイラ エラー
   expanded: false
   items:
-    - name: コンパイラ エラー (C2000 - C3999)
+    - name: コンパイラ エラー (C2000 - C3999、C7000 - C7999)
       href: compiler-errors-1/compiler-errors-c2000-c3999.md
     - name: コンパイラ エラー (C2000 - C2099)
       expanded: false
@@ -3102,6 +3104,18 @@
           href: compiler-errors-2/compiler-error-c3920.md
         - name: コンパイラ エラー C3923
           href: compiler-errors-2/compiler-error-c3923.md
+    - name: コンパイラ エラー (C7000 - C7499)
+      expanded: false
+      items:
+        - name: コンパイラ エラー (C7000 - C7499)
+          href: compiler-errors-2/compiler-errors-c7000-through-c7499.md
+    - name: コンパイラ エラー (C7500 - C7999)
+      expanded: false
+      items:
+        - name: コンパイラ エラー (C7500 - C7999)
+          href: compiler-errors-2/compiler-errors-c7500-through-c7999.md
+        - name: コンパイラ エラー C7626
+          href: compiler-warnings/c5208.md
 - name: コンパイラ警告 (C4000 - C5999)
   expanded: false
   items:
@@ -3729,7 +3743,7 @@
         - name: コンパイラ警告 (レベル 4) C4463
           href: compiler-warnings/compiler-warning-level-4-c4463.md
         - name: コンパイラ警告 (レベル 4) C4464
-          href: compiler-warnings/C4464.md
+          href: compiler-warnings/compiler-warning-level-4-c4464.md
         - name: コンパイラ警告 (レベル 1) C4470
           href: compiler-warnings/compiler-warning-level-1-c4470.md
         - name: コンパイラ警告 (レベル 4) C4471
@@ -4015,6 +4029,8 @@
           href: compiler-warnings/compiler-warning-c4693.md
         - name: コンパイラ警告 C4694
           href: compiler-warnings/compiler-warning-c4694.md
+        - name: コンパイラ警告 (レベル 3) C4698
+          href: compiler-warnings/c4698.md
         - name: コンパイラ警告 (レベル 1 およびレベル 4) C4700
           href: compiler-warnings/compiler-warning-level-1-and-level-4-c4700.md
         - name: コンパイラ警告 (レベル 4) C4701
@@ -4138,6 +4154,8 @@
           href: compiler-warnings/compiler-warning-level-3-c4823.md
         - name: コンパイラ警告 (レベル 1) C4829
           href: compiler-warnings/compiler-warning-level-1-c4829.md
+        - name: コンパイラ警告 (レベル 1) C4834
+          href: compiler-warnings/c4834.md
         - name: コンパイラ警告 (レベル 1) C4835
           href: compiler-warnings/compiler-warning-level-1-c4835.md
         - name: コンパイラ警告 (レベル 1) C4838
@@ -4250,6 +4268,8 @@
           href: compiler-warnings/compiler-warning-level-1-c4997.md
         - name: コンパイラ警告 (レベル 1) C4999
           href: compiler-warnings/compiler-warning-level-1-c4999.md
+        - name: コンパイラ警告 C5037
+          href: compiler-warnings/c5037.md
         - name: コンパイラ警告 C5038
           href: compiler-warnings/c5038.md
         - name: コンパイラ警告 C5045
